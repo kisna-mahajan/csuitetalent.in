@@ -165,7 +165,7 @@ a  { color: inherit; text-decoration: none; }
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: #ffffff;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -176,7 +176,7 @@ a  { color: inherit; text-decoration: none; }
   display: block;
   width: 32px;
   height: 1.5px;
-  background: var(--color-accent);
+  background: #ffffff;
   flex-shrink: 0;
 }
 
