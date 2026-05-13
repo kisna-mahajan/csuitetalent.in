@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Anil Mahajane — Founder of CSuite Talent. Turnaround specialist, headhunter, and international business expert with 30+ years of experience." />
+  <title>About | CSuite Talent</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    .about-hero {
+      background: var(--color-primary);
+      color: #ffffff;
+      padding: 80px 24px 72px;
+      text-align: center;
+    }
+    .about-hero .section-title { color: #ffffff; margin-bottom: 12px; }
+    .about-hero .section-body  { color: rgba(255,255,255,0.7); margin: 0 auto; }
+
+    .about-section { padding: var(--section-padding); }
+    .about-section.bg-light { background: var(--color-bg-light); }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 64px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+
+    .profile-card {
+      background: var(--color-bg-light);
+      border: 1px solid var(--color-border);
+      padding: 36px 32px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .profile-card__avatar {
+      width: 120px;
+      height: 120px;
+      background: var(--color-primary);
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--color-accent);
+    }
+
+    .profile-card__name {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+
+    .profile-card__title {
+      font-size: 0.85rem;
+      color: var(--color-accent);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .profile-card__detail {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .profile-card__link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      padding: 8px 20px;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .profile-card__link:hover {
+      background: var(--color-accent);
+      color: var(--color-primary);
+    }
+
+    .profile-bio p {
+      font-size: 1.05rem;
+      color: var(--color-muted);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .profile-bio p strong { color: var(--color-primary); }
+
+    .profile-bio .pullquote {
+      border-left: 3px solid var(--color-accent);
+      padding: 16px 24px;
+      margin: 32px 0;
+      background: var(--color-bg-light);
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: var(--color-primary);
+      line-height: 1.6;
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .expertise-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 28px 24px;
+      border-radius: 4px;
+      border-top: 3px solid var(--color-accent);
+    }
+
+    .expertise-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+
+    .expertise-card p {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+      line-height: 1.65;
+    }
+
+    .media-list { margin-top: 32px; }
+
+    .media-list a {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border: 1px solid var(--color-border);
+      border-left: 3px solid transparent;
+      margin-bottom: 12px;
+      border-radius: 2px;
+      font-size: 0.9rem;
+      color: var(--color-text);
+      transition: border-left-color 0.2s, box-shadow 0.2s;
+    }
+
+    .media-list a:hover {
+      border-left-color: var(--color-accent);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .media-list a::before {
+      content: '↗';
+      color: var(--color-accent);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .profile-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a class="nav__logo" href="../index.html">CSuite<span>Talent</span></a>
+      <ul class="nav__links">
+        <li><a href="../index.html#services">Services</a></li>
+        <li><a href="../index.html#why">Why Us</a></li>
+        <li><a href="../index.html#process">Process</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./contact.html" class="nav__cta">Engage Us</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <p class="section-label">About</p>
+    <h1 class="section-title">Anil Mahajane</h1>
+    <p class="section-body">Turnaround specialist. Headhunter. International business expert.</p>
+  </section>
+
+  <!-- BIO -->
+  <section class="about-section">
+    <div class="container">
+      <div class="profile-grid">
+
+        <div class="profile-card">
+          <div class="profile-card__avatar">AM</div>
+          <p class="profile-card__name">Anil Mahajane</p>
+          <p class="profile-card__title">Founder &amp; CEO</p>
+          <p class="profile-card__detail"><strong>MBA</strong> — Indian Institute of Foreign Trade (IIFT), 1984</p>
+          <p class="profile-card__detail">30+ years of corporate &amp; international experience</p>
+          <p class="profile-card__detail">India &amp; Middle East</p>
+          <a href="https://www.linkedin.com/in/honchohunters" target="_blank" rel="noopener" class="profile-card__link">LinkedIn Profile</a>
+        </div>
+
+        <div class="profile-bio">
+          <p>
+            Anil Mahajane is the Founder &amp; CEO of CSuite Talent — highly qualified in Management from the prestigious <strong>Indian Institute of Foreign Trade (IIFT)</strong> and thoroughly experienced for over three decades in international trade and senior leadership hiring.
+          </p>
+          <p>
+            Best known as a <strong>Turnaround Specialist</strong> and an astute <strong>Headhunter</strong> in industry circles across India and the Middle East, Anil has spent his career operating at the intersection of business leadership, executive assessment, and cross-border commerce.
+          </p>
+          <div class="pullquote">
+            "The objective is not placement. It is an enduring leadership contribution."
+          </div>
+          <p>
+            He has worked as a successful <strong>CEO in several multi-million dollar organisations in India</strong> — bringing firsthand understanding of what boards and founders truly need when making critical leadership appointments.
+          </p>
+          <p>
+            This operational experience as a chief executive — combined with decades of headhunting across sectors and geographies — gives CSuite Talent a rare vantage point: the ability to assess leadership candidates not just as a recruiter, but as someone who has sat in the chair.
+          </p>
+          <p>
+            CSuite Talent works on a <strong>limited number of assignments each year</strong>, accepting mandates selectively — where the role carries strategic consequence and the process allows for independent judgment and discretion. Engagements are respectfully declined where they are transactional, volume-driven, or incompatible with confidentiality.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section class="about-section bg-light">
+    <div class="container">
+      <p class="section-label">Areas of Expertise</p>
+      <h2 class="section-title">Depth Across Multiple Domains</h2>
+      <div class="expertise-grid" style="margin-top:40px;">
+        <div class="expertise-card">
+          <h4>Executive Search</h4>
+          <p>Board and C-suite appointments, confidential leadership transitions, and specialist senior hiring across India and the Middle East.</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Turnaround Leadership</h4>
+          <p>Identifying and placing leaders with the capability to transform underperforming organisations and navigate high-stakes transitions.</p>
+        </div>
+        <div class="expertise-card">
+          <h4>International Trade</h4>
+          <p>30+ years of cross-border commerce expertise, formally grounded in an MBA from IIFT — India's premium institute for international trade.</p>
+        </div>
+        <div class="expertise-card">
+          <h4>CEO &amp; Board Advisory</h4>
+          <p>Having led multi-million dollar organisations as CEO, bringing operational credibility to every board-level and leadership conversation.</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Industrial Asset Monetisation</h4>
+          <p>International redeployment of surplus industrial assets — connecting sellers with qualified buyers across global secondary markets.</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Cross-Border Negotiations</h4>
+          <p>Structuring and facilitating complex commercial negotiations across jurisdictions, cultures, and industries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section class="about-section">
+    <div class="container" style="max-width:760px;">
+      <p class="section-label">Media Recognition</p>
+      <h2 class="section-title">In the Press</h2>
+      <p class="section-body">Quoted and featured in leading Indian business publications on executive hiring and workforce trends.</p>
+      <div class="media-list">
+        <a href="https://economictimes.indiatimes.com/indian-firms-yet-to-take-to-hr-outsourcing-in-a-big-way/articleshow/655118.cms" target="_blank" rel="noopener">
+          Economic Times — Indian Firms Yet to Take to HR Outsourcing in a Big Way
+        </a>
+        <a href="https://economictimes.indiatimes.com/foreign-professionals-seek-jobs-in-india/articleshow/489370.cms" target="_blank" rel="noopener">
+          Economic Times — Foreign Professionals Seek Jobs in India
+        </a>
+        <a href="https://www.rediff.com/money/2004/feb/11bpo1.htm" target="_blank" rel="noopener">
+          Rediff — BPO Industry Analysis
+        </a>
+        <a href="https://anilmahajaninmedia.blogspot.com/?m=1" target="_blank" rel="noopener">
+          Complete Media Portfolio (1999–2005)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="section-title">Ready for a Confidential Conversation?</h2>
+      <p class="section-body">
+        If you are considering a leadership appointment of strategic consequence, we'd welcome a discreet discussion.
+      </p>
+      <a href="./contact.html" class="btn btn--primary">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="nav__logo" href="../index.html">CSuite<span>Talent</span></a>
+        <p>Executive search for C-suite and senior leadership across India and the Middle East.</p>
+      </div>
+      <div class="footer__links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../index.html#process">Process</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2025 CSuite Talent. All rights reserved.</span>
+      <span>csuitetalent.in</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
