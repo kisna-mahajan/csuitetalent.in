@@ -11,12 +11,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <style>
     .about-hero {
-      background: var(--color-primary);
+      background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
       color: #ffffff;
-      padding: 80px 24px 72px;
+      padding: 100px 24px 88px;
       text-align: center;
+      position: relative;
     }
-    .about-hero .section-title { color: #ffffff; margin-bottom: 12px; }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,20,40,0.90) 0%, rgba(10,20,40,0.75) 100%);
+      z-index: 0;
+    }
+    .about-hero > * { position: relative; z-index: 1; }
+    .about-hero .section-title { color: #ffffff; margin-bottom: 12px; border-bottom-color: rgba(255,255,255,0.15); }
     .about-hero .section-body  { color: rgba(255,255,255,0.7); margin: 0 auto; }
 
     .about-section { padding: var(--section-padding); }
@@ -278,18 +289,38 @@
       <h2 class="section-title">In the Press</h2>
       <p class="section-body">Quoted and featured in leading Indian business publications on executive hiring and workforce trends.</p>
       <div class="media-list">
-        <a href="https://economictimes.indiatimes.com/indian-firms-yet-to-take-to-hr-outsourcing-in-a-big-way/articleshow/655118.cms" target="_blank" rel="noopener">
-          Economic Times — Indian Firms Yet to Take to HR Outsourcing in a Big Way
-        </a>
-        <a href="https://economictimes.indiatimes.com/foreign-professionals-seek-jobs-in-india/articleshow/489370.cms" target="_blank" rel="noopener">
-          Economic Times — Foreign Professionals Seek Jobs in India
-        </a>
-        <a href="https://www.rediff.com/money/2004/feb/11bpo1.htm" target="_blank" rel="noopener">
-          Rediff — BPO Industry Analysis
-        </a>
+
         <a href="https://anilmahajaninmedia.blogspot.com/?m=1" target="_blank" rel="noopener">
+          <img class="media-thumb"
+               src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpFvDFod9PVgBNmwJd32pdHUtr4AmnFBp5vjpanKcRP23Yuo_50xpJE71TSeBVIFOu-PelsvsMHxUHo8ZI6PuFpPq3TuLxB1w-Dnj0_b_r5eqUlkwj52IUJQ4elcQelCIT9MOxgQQQ-uSl/s280/580075_368181779904075_1672276302_n.jpg"
+               alt="Anil Mahajane receiving award" />
           Complete Media Portfolio (1999–2005)
         </a>
+
+        <a href="https://economictimes.indiatimes.com/indian-firms-yet-to-take-to-hr-outsourcing-in-a-big-way/articleshow/655118.cms" target="_blank" rel="noopener">
+          <img class="media-thumb"
+               src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYle0QfV2rWvVnFAJpnxQM2Md0cL8-qVsSgifrx52yqND1h0D248S1s6BmaCDflg03z_skPm-0AuZLag5-9wO2FApTc443eyv5yVw1F1RSbWP74LG-DsnfmJ2FvDtnQxIImgjFAEbkkjOU/s280/300325_228618903860364_433974648_n.jpg"
+               alt="Economic Times article"
+               onerror="this.style.display='none'" />
+          Economic Times — Indian Firms Yet to Take to HR Outsourcing in a Big Way
+        </a>
+
+        <a href="https://economictimes.indiatimes.com/foreign-professionals-seek-jobs-in-india/articleshow/489370.cms" target="_blank" rel="noopener">
+          <img class="media-thumb"
+               src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicCf6SxvFfAXVim-TuXSpTL_x5ikGARccWpkJEyoMhV66sdY7rA09qB07pmcKGedXus7GqQW3bxjI_KYTLdO0wESfspM7jDmsf18P73TPpcVWP7y_pMH4ZKMH4Z4EBakMfZVElkr_jr6PA/s280/311036_228612090527712_1028433885_n.jpg"
+               alt="Economic Times article"
+               onerror="this.style.display='none'" />
+          Economic Times — Foreign Professionals Seek Jobs in India
+        </a>
+
+        <a href="https://www.rediff.com/money/2004/feb/11bpo1.htm" target="_blank" rel="noopener">
+          <img class="media-thumb"
+               src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEicCf6SxvFfAXVim-TuXSpTL_x5ikGARccWpkJEyoMhV66sdY7rA09qB07pmcKGedXus7GqQW3bxjI_KYTLdO0wESfspM7jDmsf18P73TPpcVWP7y_pMH4ZKMH4Z4EBakMfZVElkr_jr6PA/s280/311036_228612090527712_1028433885_n.jpg"
+               alt="Rediff article"
+               onerror="this.style.display='none'" />
+          Rediff — BPO Industry Analysis
+        </a>
+
       </div>
     </div>
   </section>
@@ -310,21 +341,29 @@
     <div class="footer__inner">
       <div class="footer__brand">
         <a class="nav__logo" href="../index.html">CSuite<span>Talent</span></a>
-        <p>Executive search for C-suite and senior leadership across India and the Middle East.</p>
+        <p>Specialised executive search for C-suite and senior leadership across India and the Middle East.</p>
       </div>
-      <div class="footer__links">
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../index.html#services">Board &amp; C-Suite</a></li>
+          <li><a href="../index.html#services">Confidential Search</a></li>
+          <li><a href="../index.html#services">Specialist Roles</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
         <h4>Company</h4>
         <ul>
-          <li><a href="../index.html#services">Services</a></li>
-          <li><a href="../index.html#process">Process</a></li>
           <li><a href="./about.html">About</a></li>
+          <li><a href="../index.html#process">Our Process</a></li>
           <li><a href="./contact.html">Contact</a></li>
+          <li><a href="https://www.linkedin.com/in/honchohunters" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
       <span>&copy; 2025 CSuite Talent. All rights reserved.</span>
-      <span>csuitetalent.in</span>
+      <span>leadership@csuitetalent.in</span>
     </div>
   </footer>
 

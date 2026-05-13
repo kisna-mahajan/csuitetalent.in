@@ -1,3 +1,11 @@
+// Nav scroll shadow
+const nav = document.querySelector('.nav');
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('nav--scrolled', window.scrollY > 20);
+  }, { passive: true });
+}
+
 // Mobile nav toggle
 const hamburger = document.querySelector('.nav__hamburger');
 const navLinks  = document.querySelector('.nav__links');
