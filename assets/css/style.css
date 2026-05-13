@@ -244,7 +244,7 @@ a  { color: inherit; text-decoration: none; }
 
 /* ===== SECTION LABELS ===== */
 .section-label {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 12px;
   font-size: 0.72rem;
@@ -273,9 +273,6 @@ a  { color: inherit; text-decoration: none; }
   margin-bottom: 20px;
   letter-spacing: -0.02em;
   font-weight: 700;
-  display: inline-block;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  padding-bottom: 2px;
 }
 
 .section-body {
@@ -301,15 +298,14 @@ a  { color: inherit; text-decoration: none; }
 
 .services__header {
   margin-bottom: 64px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.services__header .section-body { max-width: 480px; }
+.services__header .section-label { justify-content: center; }
+.services__header .section-body  { margin: 0 auto; }
 
 .services__grid {
   display: grid;
@@ -465,17 +461,12 @@ a  { color: inherit; text-decoration: none; }
   color: var(--color-accent);
   line-height: 1;
   font-weight: 700;
-  opacity: 0.12;
+  opacity: 0.18;
   position: absolute;
   top: 16px;
   left: 16px;
   margin-bottom: 0;
   pointer-events: none;
-}
-
-.step--active .step__number {
-  opacity: 1;
-  color: var(--color-accent);
 }
 
 .step__title {
@@ -519,7 +510,10 @@ a  { color: inherit; text-decoration: none; }
 .cta-banner .container { position: relative; z-index: 1; }
 
 .cta-banner .section-label { color: rgba(255,255,255,0.7); }
-.cta-banner .section-title { color: #ffffff; margin-bottom: 20px; border-bottom-color: rgba(255,255,255,0.15); }
+.cta-banner .section-label::before { background: rgba(255,255,255,0.5); }
+.cta-banner .section-label,
+.cta-banner .section-body { justify-content: center; }
+.cta-banner .section-title { color: #ffffff; margin-bottom: 20px; }
 .cta-banner .section-body  { color: rgba(255,255,255,0.75); margin: 0 auto 40px; }
 
 /* ===== MEDIA THUMBNAILS ===== */
