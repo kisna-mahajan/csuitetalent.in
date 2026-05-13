@@ -75,13 +75,13 @@ a  { color: inherit; text-decoration: none; }
   line-height: 1.15;
 }
 
-.nav__logo span { color: var(--color-accent); }
+.nav__logo-line > span { color: var(--color-accent); }
 
 .nav__logo small {
   font-family: var(--font-body);
   font-size: 0.5rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-muted);
 }
@@ -567,9 +567,11 @@ a  { color: inherit; text-decoration: none; }
 .footer__brand .nav__logo {
   font-size: 1.2rem;
   margin-bottom: 16px;
-  display: block;
+  display: flex;
   color: #ffffff;
 }
+.footer__brand .nav__logo .nav__logo-line > span { color: rgba(255,255,255,0.85); }
+.footer__brand .nav__logo small { color: rgba(255,255,255,0.45); }
 
 .footer__brand p { font-size: 0.85rem; max-width: 260px; line-height: 1.7; }
 
