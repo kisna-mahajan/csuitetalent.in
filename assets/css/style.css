@@ -177,7 +177,7 @@ a  { color: inherit; text-decoration: none; }
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--color-accent);
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -188,7 +188,7 @@ a  { color: inherit; text-decoration: none; }
   display: block;
   width: 32px;
   height: 1.5px;
-  background: #ffffff;
+  background: var(--color-accent);
   flex-shrink: 0;
 }
 
@@ -567,11 +567,9 @@ a  { color: inherit; text-decoration: none; }
 .footer__brand .nav__logo {
   font-size: 1.2rem;
   margin-bottom: 16px;
-  display: flex;
+  display: block;
   color: #ffffff;
 }
-
-.footer__brand .nav__logo small { color: rgba(255,255,255,0.45); }
 
 .footer__brand p { font-size: 0.85rem; max-width: 260px; line-height: 1.7; }
 
