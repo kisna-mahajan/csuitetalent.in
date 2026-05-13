@@ -1,0 +1,199 @@
+================================================================================
+  CSUITETALENT.IN — FULL INFRASTRUCTURE EXPLANATION
+================================================================================
+
+This document explains how the website is hosted, how the domain works, and
+how emails sent to leadership@csuitetalent.in reach your Gmail inbox.
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 1 — WHERE THE WEBSITE LIVES (HOSTING)
+────────────────────────────────────────────────────────────────────────────────
+
+The website is a collection of plain HTML, CSS, and JS files. There is no
+server, no database, and no backend. The files are served directly from GitHub.
+
+  ┌─────────────────────────────────────────────────────────┐
+  │  YOUR COMPUTER                                          │
+  │                                                         │
+  │  You write/edit HTML, CSS, JS files locally             │
+  │  and push them via Git to GitHub                        │
+  └─────────────────────────┬───────────────────────────────┘
+                            │  git push origin main
+                            ▼
+  ┌─────────────────────────────────────────────────────────┐
+  │  GITHUB (github.com)                                    │
+  │                                                         │
+  │  Repository: kisna-mahajan/csuitetalent.in              │
+  │  Branch:     main                                       │
+  │                                                         │
+  │  GitHub Pages reads the files from the main branch      │
+  │  and serves them as a static website automatically.     │
+  │  Default URL: kisna-mahajan.github.io/csuitetalent.in   │
+  └─────────────────────────────────────────────────────────┘
+
+Every time you push to the main branch, GitHub Pages automatically deploys
+the updated files within ~1-2 minutes. No manual deployment step needed.
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 2 — HOW THE DOMAIN WORKS (DNS)
+────────────────────────────────────────────────────────────────────────────────
+
+A domain name is just a human-readable label that points to an IP address.
+DNS (Domain Name System) is the phone book that translates the label to an
+address. Cloudflare manages the DNS for csuitetalent.in.
+
+  ┌─────────────────────────────────────────────────────────┐
+  │  DOMAIN REGISTRAR                                       │
+  │  (e.g. GoDaddy / Namecheap / Google Domains / etc.)    │
+  │                                                         │
+  │  Owns the rights to "csuitetalent.in"                   │
+  │  Nameservers are pointed to Cloudflare                  │
+  └─────────────────────────┬───────────────────────────────┘
+                            │  "Ask Cloudflare about DNS"
+                            ▼
+  ┌─────────────────────────────────────────────────────────┐
+  │  CLOUDFLARE (cloudflare.com)                            │
+  │                                                         │
+  │  Acts as the DNS manager for csuitetalent.in.           │
+  │  Holds two key records:                                 │
+  │                                                         │
+  │  A / CNAME record → points csuitetalent.in              │
+  │                      to GitHub Pages servers            │
+  │                                                         │
+  │  MX records        → points email @csuitetalent.in      │
+  │                      to Cloudflare Email Routing        │
+  │                                                         │
+  │  Cloudflare also acts as a CDN and security layer       │
+  │  (DDoS protection, caching, HTTPS certificates)         │
+  └─────────────────────────────────────────────────────────┘
+
+The CNAME file in the root of the repository (containing "csuitetalent.in")
+tells GitHub Pages which custom domain to respond to.
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 3 — FULL WEBSITE REQUEST FLOW
+────────────────────────────────────────────────────────────────────────────────
+
+When a visitor types "csuitetalent.in" in their browser:
+
+  Visitor's Browser
+       │
+       │  1. "What is the IP address of csuitetalent.in?"
+       ▼
+  DNS Resolver (ISP / Google 8.8.8.8 / Cloudflare 1.1.1.1)
+       │
+       │  2. Asks Cloudflare's nameservers
+       ▼
+  Cloudflare DNS
+       │
+       │  3. Returns GitHub Pages IP address
+       │     Also serves from its own cache/CDN if available
+       ▼
+  GitHub Pages Servers
+       │
+       │  4. Checks the CNAME file in the repo
+       │     Confirms this domain maps to kisna-mahajan/csuitetalent.in
+       │     Serves the requested HTML/CSS/JS files
+       ▼
+  Visitor's Browser
+       │
+       │  5. Renders the page
+       ▼
+  csuitetalent.in appears on screen ✓
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 4 — HOW EMAIL GETS TO YOUR GMAIL
+────────────────────────────────────────────────────────────────────────────────
+
+When someone submits the contact form:
+
+  Visitor fills form on csuitetalent.in/pages/contact.html
+       │
+       │  1. Browser POSTs form data to FormSubmit.co
+       ▼
+  FormSubmit.co (formsubmit.co)
+       │
+       │  2. FormSubmit composes an email and sends it
+       │     TO: leadership@csuitetalent.in
+       ▼
+  The Internet (SMTP email routing)
+       │
+       │  3. "Where do I deliver mail for @csuitetalent.in?"
+       │     Looks up MX records for csuitetalent.in in DNS
+       ▼
+  Cloudflare DNS
+       │
+       │  4. MX records point to Cloudflare Email Routing
+       ▼
+  Cloudflare Email Routing
+       │
+       │  5. Rule: leadership@csuitetalent.in
+       │            → forward to → csuitetalent.in@gmail.com
+       ▼
+  Gmail (google.com)
+       │
+       │  6. Delivers to your Gmail inbox
+       ▼
+  You receive the enquiry email ✓
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 5 — FULL SYSTEM MAP (ONE VIEW)
+────────────────────────────────────────────────────────────────────────────────
+
+  ┌──────────────┐     git push      ┌─────────────────────────────────────┐
+  │ Your Computer│ ────────────────► │ GitHub                              │
+  │ (code editor)│                   │ Repo: kisna-mahajan/csuitetalent.in │
+  └──────────────┘                   │ Branch: main → GitHub Pages         │
+                                     └──────────────┬──────────────────────┘
+                                                    │ serves files
+                                                    ▼
+  ┌──────────────┐   types URL   ┌──────────────┐  ┌─────────────────────────┐
+  │   Visitor    │ ────────────► │  Cloudflare  │  │   GitHub Pages          │
+  │  (browser)   │               │  DNS + CDN   │◄─│   (static file server)  │
+  └──────┬───────┘               └──────────────┘  └─────────────────────────┘
+         │                             │
+         │  submits form               │ MX records for email
+         ▼                             ▼
+  ┌──────────────┐              ┌──────────────────────────┐
+  │FormSubmit.co │ ──────────── │ Cloudflare Email Routing │
+  │ (form relay) │  sends email │ leadership@csuitetalent  │
+  └──────────────┘              │ .in → csuitetalent.in    │
+                                │ @gmail.com               │
+                                └─────────────┬────────────┘
+                                              │ forwards
+                                              ▼
+                                       ┌─────────────┐
+                                       │    Gmail    │
+                                       │ Your Inbox  │
+                                       └─────────────┘
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 6 — SUMMARY TABLE
+────────────────────────────────────────────────────────────────────────────────
+
+  Service                 Role                              Cost
+  ──────────────────────  ────────────────────────────────  ──────────────
+  Domain Registrar        Owns the csuitetalent.in name     Annual fee
+  Cloudflare              DNS, CDN, HTTPS, Email Routing    Free
+  GitHub                  Code repository + hosting         Free
+  GitHub Pages            Static file serving               Free
+  FormSubmit.co           Contact form relay                Free
+  Gmail                   Email inbox                       Free
+
+────────────────────────────────────────────────────────────────────────────────
+  PART 7 — IMPORTANT FILES IN THE REPOSITORY
+────────────────────────────────────────────────────────────────────────────────
+
+  CNAME                 Tells GitHub Pages the custom domain is csuitetalent.in
+                        If this file is deleted, the custom domain stops working.
+
+  index.html            Homepage — served at csuitetalent.in/
+  pages/about.html      About page — served at csuitetalent.in/pages/about.html
+  pages/contact.html    Contact page — contains the FormSubmit form
+  assets/css/style.css  All styling for every page
+  assets/js/main.js     Navigation scroll behaviour
+  assets/images/        Background images (hero-bg.jpg, leader-bg.jpg)
+
+================================================================================
+  Generated for CSuite Talent — csuitetalent.in
+================================================================================
