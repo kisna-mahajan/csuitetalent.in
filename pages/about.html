@@ -242,6 +242,20 @@
       .media-grid { grid-template-columns: 1fr; }
     }
 
+    .media-card--featured {
+      grid-column: 1 / -1;
+      flex-direction: row;
+    }
+    .media-card--featured .media-card__img-wrap {
+      width: 280px;
+      height: auto;
+      flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .media-card--featured { flex-direction: column; }
+      .media-card--featured .media-card__img-wrap { width: 100%; height: 200px; }
+    }
+
     .media-list a::before {
       content: '↗';
       color: var(--color-accent);
@@ -303,7 +317,7 @@
             Best known as a <strong>Turnaround Specialist</strong> and an astute <strong>Headhunter</strong> in industry circles across India and the Middle East, Anil has spent his career operating at the intersection of business leadership, executive assessment, and cross-border commerce.
           </p>
           <div class="pullquote">
-            "The objective is not placement. It is an enduring leadership contribution."
+            “The objective is not placement. It is an enduring leadership contribution.”
           </div>
           <p>
             He has worked as a successful <strong>CEO in several multi-million dollar organisations in India</strong> — bringing firsthand understanding of what boards and founders truly need when making critical leadership appointments.
@@ -362,7 +376,7 @@
       <p class="section-body" style="max-width:none;text-align:center;white-space:nowrap;">Quoted and featured in leading Indian business publications on executive hiring and workforce trends.</p>
       <div class="media-grid">
 
-        <a class="media-card" href="https://anilmahajaninmedia.blogspot.com/?m=1" target="_blank" rel="noopener">
+        <a class="media-card media-card--featured" href="https://anilmahajaninmedia.blogspot.com/?m=1" target="_blank" rel="noopener">
           <div class="media-card__img-wrap">
             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpFvDFod9PVgBNmwJd32pdHUtr4AmnFBp5vjpanKcRP23Yuo_50xpJE71TSeBVIFOu-PelsvsMHxUHo8ZI6PuFpPq3TuLxB1w-Dnj0_b_r5eqUlkwj52IUJQ4elcQelCIT9MOxgQQQ-uSl/s280/580075_368181779904075_1672276302_n.jpg"
                  alt="Anil Mahajane receiving award" />
@@ -406,6 +420,18 @@
           <div class="media-card__body">
             <p class="media-card__pub">Rediff</p>
             <p class="media-card__title">BPO Industry Analysis</p>
+            <span class="media-card__cta">Read article →</span>
+          </div>
+        </a>
+
+        <a class="media-card" href="https://anilmahajaninmedia.blogspot.com/2015/05/let-jobs-chase-people-financial-express.html?m=1" target="_blank" rel="noopener">
+          <div class="media-card__img-wrap">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYle0QfV2rWvVnFAJpnxQM2Md0cL8-qVsSgifrx52yqND1h0D248S1s6BmaCDflg03z_skPm-0AuZLag5-9wO2FApTc443eyv5yVw1F1RSbWP74LG-DsnfmJ2FvDtnQxIImgjFAEbkkjOU/s280/300325_228618903860364_433974648_n.jpg"
+                 alt="Financial Express article" />
+          </div>
+          <div class="media-card__body">
+            <p class="media-card__pub">Financial Express</p>
+            <p class="media-card__title">Let Jobs Chase People</p>
             <span class="media-card__cta">Read article →</span>
           </div>
         </a>
