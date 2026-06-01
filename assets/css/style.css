@@ -608,6 +608,7 @@ a  { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 768px) {
+  :root { --section-padding: 64px 0; }
   .container { padding: 0 20px; }
   .nav { padding: 0 20px; }
   .nav__links { display: none; }
@@ -630,7 +631,7 @@ a  { color: inherit; text-decoration: none; }
   .nav__links.is-open li { border-bottom: 1px solid var(--color-border); }
   .nav__links.is-open a { display: block; padding: 14px 0; }
   .nav__links.is-open a::after { display: none; }
-  .nav__links.is-open .nav__cta { margin-top: 12px; text-align: center; }
+  .nav__links.is-open .nav__cta { margin-top: 12px; text-align: center; padding: 10px 18px; }
 
   .hero { padding: 80px 20px 72px; }
   .services__header { flex-direction: column; align-items: flex-start; }
@@ -646,6 +647,7 @@ a  { color: inherit; text-decoration: none; }
   .step { border-right: none; border-bottom: 1px solid var(--color-border); }
   .step:last-child { border-bottom: none; }
   .step:nth-child(3), .step:nth-child(4), .step:nth-child(5) { border-top: none; }
+  .process__steps .step:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
   .footer__inner { grid-template-columns: 1fr; gap: 40px; }
   .cta-banner { padding: 72px 20px; }
@@ -654,4 +656,6 @@ a  { color: inherit; text-decoration: none; }
 @media (max-width: 480px) {
   .why__stats { grid-template-columns: 1fr; }
   .hero { padding: 64px 20px 56px; }
+  .hero__eyebrow { letter-spacing: 0.1em; font-size: 0.65rem; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; gap: 4px; }
 }

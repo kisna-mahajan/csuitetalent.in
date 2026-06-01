@@ -108,6 +108,13 @@
       font-family: var(--font-heading);
       font-size: 2.5rem;
       color: var(--color-accent);
+      overflow: hidden;
+    }
+    .profile-card__avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
 
     .profile-card__name {
@@ -344,7 +351,9 @@
       <div class="profile-grid">
 
         <div class="profile-card">
-          <div class="profile-card__avatar">AM</div>
+          <div class="profile-card__avatar">
+            <img src="../assets/images/AM.jpg" alt="Anil Mahajane" />
+          </div>
           <p class="profile-card__name">Anil Mahajane</p>
           <p class="profile-card__title">Founder &amp; CEO</p>
           <p class="profile-card__detail"><strong>MBA</strong> — Indian Institute of Foreign Trade (IIFT), 1984</p>
@@ -417,7 +426,7 @@
     <div class="container">
       <p class="section-label">Media Recognition</p>
       <h2 class="section-title" style="text-align:center;">In the Press</h2>
-      <p class="section-body" style="max-width:none;text-align:center;white-space:nowrap;">Quoted and featured in leading Indian business publications on executive hiring and workforce trends.</p>
+      <p class="section-body" style="max-width:none;text-align:center;">Quoted and featured in leading Indian business publications on executive hiring and workforce trends.</p>
       <div class="media-grid">
 
         <a class="media-card" href="https://anilmahajaninmedia.blogspot.com/2015/05/let-jobs-chase-people-financial-express.html?m=1" target="_blank" rel="noopener">
