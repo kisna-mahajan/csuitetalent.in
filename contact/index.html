@@ -142,6 +142,7 @@
       <a class="nav__logo" href="../"><span class="nav__logo-line">CSuite <span>Talent</span></span><small>Management Consulting</small></a>
       <ul class="nav__links">
         <li><a href="/#services">Services</a></li>
+        <li><a href="/#practices">Practices</a></li>
         <li><a href="/#why">Why Us</a></li>
         <li><a href="/#process">Process</a></li>
         <li><a href="/about">About</a></li>
@@ -225,6 +226,18 @@
           </div>
 
           <div class="form-group">
+            <label for="vertical">Business Vertical (Optional)</label>
+            <select id="vertical" name="vertical">
+              <option value="" selected>Not sector-specific</option>
+              <option value="GCC &amp; Shared Services">GCC &amp; Shared Services</option>
+              <option value="Defence &amp; Aerospace">Defence &amp; Aerospace</option>
+              <option value="Healthcare &amp; Clinical">Healthcare &amp; Clinical</option>
+              <option value="Electronics &amp; Technology">Electronics &amp; Technology</option>
+              <option value="Cement, Steel &amp; Building Materials">Cement, Steel &amp; Building Materials</option>
+            </select>
+          </div>
+
+          <div class="form-group">
             <label for="message">Brief</label>
             <textarea id="message" name="message" placeholder="Describe the mandate or what you're looking to discuss..."></textarea>
           </div>
@@ -264,6 +277,16 @@
           <li><a href="https://www.linkedin.com/in/honchohunters" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </div>
+      <div class="footer__col">
+        <h4>Practices</h4>
+        <ul>
+          <li><a href="/gcc">GCC &amp; Shared Services</a></li>
+          <li><a href="/defence">Defence &amp; Aerospace</a></li>
+          <li><a href="/healthcare">Healthcare &amp; Clinical</a></li>
+          <li><a href="/electronics">Electronics &amp; Technology</a></li>
+          <li><a href="/cement-steel">Cement, Steel &amp; Materials</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer__bottom">
       <span>&copy; 2025 CSuite Talent. All rights reserved.</span>
@@ -272,6 +295,32 @@
   </footer>
 
   <script src="../assets/js/main.js"></script>
+  <script>
+    (function () {
+      var param = new URLSearchParams(window.location.search).get('vertical');
+      if (!param) return;
+      var map = {
+        'gcc':          'GCC & Shared Services',
+        'defence':      'Defence & Aerospace',
+        'healthcare':   'Healthcare & Clinical',
+        'electronics':  'Electronics & Technology',
+        'cement-steel': 'Cement, Steel & Building Materials'
+      };
+      var label = map[param];
+      if (!label) return;
+      var sel = document.getElementById('vertical');
+      if (sel) {
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value === label) {
+            sel.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      var subj = document.querySelector('input[name="_subject"]');
+      if (subj) subj.value = 'New Enquiry — CSuite Talent (' + label + ')';
+    })();
+  </script>
 
   <!-- ===== STRUCTURED DATA (Google, AI engines) ===== -->
   <script type="application/ld+json">
