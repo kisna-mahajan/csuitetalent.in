@@ -1,0 +1,5 @@
+Contact: mailto:mahajankisna@gmail.com
+Expires: 2027-06-13T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://csuitetalent.in/.well-known/security.txt
+Policy: https://csuitetalent.in/.well-known/security.txt
