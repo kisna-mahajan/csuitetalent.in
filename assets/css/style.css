@@ -461,7 +461,7 @@ a  { color: inherit; text-decoration: none; }
 }
 
 .philosophy__inner .section-label { justify-content: center; }
-.philosophy__inner .section-body { margin: 0 auto; max-width: 640px; }
+.philosophy__inner .section-body { margin: 0 auto; max-width: none; }
 
 .philosophy__quote {
   font-family: var(--font-heading);
