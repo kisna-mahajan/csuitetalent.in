@@ -51,11 +51,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <style>
     .philosophy-hero {
-      background: var(--color-primary);
+      background-image: url('../assets/images/philosophy-hero.jpg');
+      background-size: cover;
+      background-position: center center;
       color: #ffffff;
       padding: 80px 24px 72px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+    .philosophy-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,20,40,0.65) 0%, rgba(10,20,40,0.5) 100%);
+      z-index: 0;
+    }
+    .philosophy-hero > * { position: relative; z-index: 1; }
     .philosophy-hero .section-label { justify-content: center; color: rgba(255,255,255,0.6); }
     .philosophy-hero .section-label::before,
     .philosophy-hero .section-label::after { background: rgba(255,255,255,0.4); }
