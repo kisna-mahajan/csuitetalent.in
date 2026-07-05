@@ -19,10 +19,7 @@
   <meta property="og:url" content="https://csuitetalent.in/corporate-partners" />
   <meta property="og:image" content="https://csuitetalent.in/assets/images/hero-bg.jpg" />
 
-  <!-- ===== MOBILE ===== -->
   <meta name="theme-color" content="#1a1a1a" />
-
-  <!-- ===== FAVICON ===== -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180x180.png" />
@@ -33,18 +30,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 
   <style>
-    /* --- HERO --- */
-    .partner-hero { padding: 88px 40px 80px; }
-    .partner-hero .section-body { max-width: 680px; }
+    /* ======================================================
+       HERO
+    ====================================================== */
+    .partner-hero {
+      padding: 88px 40px 80px;
+    }
+    .partner-hero .section-body {
+      max-width: 660px;
+      margin: 0 auto 0;
+    }
     .partner-hero__sub {
       color: rgba(255,255,255,0.6);
       font-size: 0.95rem;
       max-width: 640px;
-      margin: 16px auto 32px;
+      margin: 18px auto 36px;
       line-height: 1.85;
     }
 
-    /* --- VALUE PROPOSITION --- */
+    /* ======================================================
+       VALUE PROPOSITION
+    ====================================================== */
     .partner-value {
       padding: var(--section-padding);
       background: var(--color-bg);
@@ -54,6 +60,11 @@
       max-width: 700px;
       margin: 0 auto 56px;
     }
+    /* centre the body text block within the header */
+    .partner-value__header .section-body {
+      margin: 0 auto;
+    }
+
     .partner-cards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -83,7 +94,9 @@
       line-height: 1.75;
     }
 
-    /* --- DOMAIN SPECIALISATION --- */
+    /* ======================================================
+       DOMAIN SPECIALISATION
+    ====================================================== */
     .partner-domain {
       padding: var(--section-padding);
       background: var(--color-bg-light);
@@ -93,6 +106,17 @@
       grid-template-columns: 1fr 1.5fr;
       gap: 80px;
       align-items: start;
+    }
+    /* left-aligned column — keep section-label flush left */
+    .partner-domain__intro .section-label,
+    .partner-eligibility__left .section-label,
+    .partner-apply__info .section-label {
+      justify-content: flex-start;
+    }
+    .partner-domain__intro .section-title,
+    .partner-eligibility__left .section-title,
+    .partner-apply__info .section-title {
+      text-align: left;
     }
     .partner-domain__intro p {
       font-size: 0.9rem;
@@ -110,7 +134,9 @@
       padding-left: 14px;
     }
 
-    /* --- HOW IT WORKS --- */
+    /* ======================================================
+       HOW IT WORKS
+    ====================================================== */
     .partner-process {
       padding: var(--section-padding);
       background: var(--color-bg);
@@ -120,13 +146,17 @@
       max-width: 600px;
       margin: 0 auto 56px;
     }
+    .partner-process__header .section-body {
+      margin: 0 auto;
+    }
+
     .partner-steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
     }
     .partner-step {
-      padding: 36px 32px;
+      padding: 36px 28px;
       border-right: 1px solid var(--color-border);
       border-top: 3px solid var(--color-accent);
       background: var(--color-bg-light);
@@ -134,29 +164,38 @@
       overflow: hidden;
     }
     .partner-step:last-child { border-right: none; }
+
+    /* ghost number — behind all content */
     .partner-step__number {
       font-family: var(--font-heading);
       font-size: 4rem;
       color: var(--color-accent);
       line-height: 1;
       font-weight: 700;
-      opacity: 0.18;
+      opacity: 0.15;
       position: absolute;
       top: 16px;
       left: 16px;
       pointer-events: none;
+      z-index: 0;
     }
+    /* step content sits above the ghost number */
     .partner-step h4 {
       font-family: var(--font-heading);
       font-size: 1rem;
       color: var(--color-dark);
-      margin: 36px 0 10px;
+      margin: 60px 0 10px;   /* clears the 4rem number */
       font-weight: 700;
+      position: relative;
+      z-index: 1;
     }
-    .partner-step p {
+    .partner-step p,
+    .fee-note {
       font-size: 0.875rem;
       color: var(--color-muted);
       line-height: 1.75;
+      position: relative;
+      z-index: 1;
     }
     .fee-note {
       margin-top: 16px;
@@ -169,7 +208,9 @@
       line-height: 1.6;
     }
 
-    /* --- CONFIDENTIALITY (dark section) --- */
+    /* ======================================================
+       CONFIDENTIALITY — dark section
+    ====================================================== */
     .partner-confidentiality {
       padding: var(--section-padding);
       background: var(--color-primary);
@@ -180,20 +221,22 @@
       margin-bottom: 56px;
     }
     .partner-confidentiality__header .section-label {
-      justify-content: center;
       color: rgba(255,255,255,0.5);
     }
     .partner-confidentiality__header .section-label::before,
-    .partner-confidentiality__header .section-label::after { background: rgba(255,255,255,0.3); }
+    .partner-confidentiality__header .section-label::after {
+      background: rgba(255,255,255,0.3);
+    }
     .partner-confidentiality__header .section-title { color: #ffffff; }
     .partner-confidentiality__header .section-body {
       color: rgba(255,255,255,0.65);
       margin: 0 auto;
     }
+
     .confidentiality-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
+      gap: 20px;
       max-width: 1000px;
       margin: 0 auto;
     }
@@ -215,7 +258,9 @@
       line-height: 1.75;
     }
 
-    /* --- ELIGIBILITY --- */
+    /* ======================================================
+       ELIGIBILITY
+    ====================================================== */
     .partner-eligibility {
       padding: var(--section-padding);
       background: var(--color-bg-light);
@@ -226,6 +271,11 @@
       gap: 80px;
       align-items: start;
     }
+    .partner-eligibility__left .section-body {
+      margin-top: 16px;
+      max-width: none;
+    }
+
     .eligibility-list {
       list-style: none;
       padding: 0;
@@ -252,7 +302,9 @@
       flex-shrink: 0;
     }
 
-    /* --- APPLY / FORM --- */
+    /* ======================================================
+       APPLY / FORM
+    ====================================================== */
     .partner-apply {
       padding: var(--section-padding);
       background: var(--color-bg);
@@ -263,7 +315,9 @@
       gap: 80px;
       align-items: start;
     }
-    .partner-apply__info .section-body { max-width: none; }
+    .partner-apply__info .section-body {
+      max-width: none;
+    }
     .partner-apply__email {
       display: inline-block;
       margin-top: 20px;
@@ -291,7 +345,23 @@
       line-height: 1.65;
     }
 
-    /* --- RESPONSIVE --- */
+    /* ======================================================
+       FORM SUCCESS BANNER
+    ====================================================== */
+    .partner-success-banner {
+      background: #1a6b3c;
+      color: #ffffff;
+      padding: 18px 24px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    .partner-success-banner p { color: #fff; max-width: none; }
+
+    /* ======================================================
+       RESPONSIVE
+    ====================================================== */
     @media (max-width: 900px) {
       .partner-domain__inner,
       .partner-eligibility__inner,
@@ -376,7 +446,7 @@
       <div class="partner-domain__inner">
         <div class="partner-domain__intro">
           <p class="section-label">Our Domain Depth</p>
-          <h2 class="section-title" style="text-align:left;">Our Domain Specialisation</h2>
+          <h2 class="section-title">Our Domain Specialisation</h2>
           <p>Corporate partners choose C-Suite Talent because we are not generic, generalist recruiters. Founded by Anil Mahajane, MBA (IIFT), a former techno-commercial manufacturing executive with VP and CEO-level leadership experience spanning three decades, we speak the exact operational and technical language your clients do.</p>
         </div>
         <div class="partner-domain__verticals">
@@ -457,10 +527,10 @@
   <section class="partner-eligibility">
     <div class="container">
       <div class="partner-eligibility__inner">
-        <div>
+        <div class="partner-eligibility__left">
           <p class="section-label">Who Should Apply</p>
-          <h2 class="section-title" style="text-align:left;">Who Is Ideal for This Programme?</h2>
-          <p class="section-body" style="max-width:none;margin-top:16px;">This enterprise network is specifically designed for independent firms and senior professionals who maintain active, trusted commercial access to manufacturing promoters, Managing Directors, CEOs, and HR Heads.</p>
+          <h2 class="section-title">Who Is Ideal for This Programme?</h2>
+          <p class="section-body">This enterprise network is specifically designed for independent firms and senior professionals who maintain active, trusted commercial access to manufacturing promoters, Managing Directors, CEOs, and HR Heads.</p>
         </div>
         <ul class="eligibility-list">
           <li>Boutique Management &amp; Strategy Consultants</li>
@@ -480,8 +550,8 @@
 
         <div class="partner-apply__info">
           <p class="section-label">Get in Touch</p>
-          <h2 class="section-title" style="text-align:left;">Let's Discuss a Strategic Alliance</h2>
-          <p class="section-body" style="max-width:none;">If you are ready to expand your consulting capabilities and unlock a premium revenue stream through your existing network, reach out directly or submit the form and we will connect for a brief introductory discussion.</p>
+          <h2 class="section-title">Let's Discuss a Strategic Alliance</h2>
+          <p class="section-body">If you are ready to expand your consulting capabilities and unlock a premium revenue stream through your existing network, reach out directly or submit the form and we will connect for a brief introductory discussion.</p>
           <a class="partner-apply__email" href="mailto:leadership@csuitetalent.in">leadership@csuitetalent.in</a>
           <p class="partner-apply__detail"><strong>Executive Contact:</strong> Anil Mahajane, MBA (IIFT)<br />Founder &amp; Director, C-Suite Talent Management Consulting</p>
           <blockquote class="partner-apply__quote">"At C-Suite Talent, we believe enduring partnerships are built on trust, professionalism, transparency, and shared performance."</blockquote>
@@ -491,7 +561,7 @@
           <form class="form" action="https://formsubmit.co/leadership@csuitetalent.in" method="POST">
             <input type="hidden" name="_subject" value="Corporate Partner Application — CSuite Talent" />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://csuitetalent.in/corporate-partners" />
+            <input type="hidden" name="_next" value="https://csuitetalent.in/corporate-partners?sent=true" />
             <input type="text" name="_honey" style="display:none" />
 
             <div class="form-row">
@@ -605,6 +675,18 @@
   </footer>
 
   <script src="../assets/js/main.js"></script>
+
+  <!-- Form submission confirmation banner -->
+  <script>
+    if (window.location.search.indexOf('sent=true') !== -1) {
+      var banner = document.createElement('div');
+      banner.className = 'partner-success-banner';
+      banner.innerHTML = '<p>Your partnership request has been submitted — thank you. We will be in touch within one business day.</p>';
+      var hero = document.querySelector('.vertical-hero');
+      hero.parentNode.insertBefore(banner, hero);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  </script>
 
   <script type="application/ld+json">
   {
