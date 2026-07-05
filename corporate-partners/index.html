@@ -57,7 +57,7 @@
     }
     .partner-value__header {
       text-align: center;
-      max-width: 700px;
+      max-width: 860px;
       margin: 0 auto 56px;
     }
     /* centre the body text block within the header */
@@ -112,6 +112,7 @@
     .partner-eligibility__left .section-label,
     .partner-apply__info .section-label {
       justify-content: flex-start;
+      color: var(--color-accent);
     }
     .partner-domain__intro .section-title,
     .partner-eligibility__left .section-title,
@@ -125,11 +126,13 @@
       margin-top: 16px;
     }
     .partner-domain__verticals h3 {
-      font-family: var(--font-heading);
-      font-size: 1.05rem;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--color-primary);
       margin-bottom: 20px;
-      font-weight: 700;
+      font-weight: 600;
       border-left: 2px solid var(--color-accent);
       padding-left: 14px;
     }
@@ -143,7 +146,7 @@
     }
     .partner-process__header {
       text-align: center;
-      max-width: 600px;
+      max-width: 760px;
       margin: 0 auto 56px;
     }
     .partner-process__header .section-body {
@@ -156,7 +159,7 @@
       gap: 0;
     }
     .partner-step {
-      padding: 36px 28px;
+      padding: 28px 28px;
       border-right: 1px solid var(--color-border);
       border-top: 3px solid var(--color-accent);
       background: var(--color-bg-light);
@@ -221,27 +224,26 @@
       margin-bottom: 56px;
     }
     .partner-confidentiality__header .section-label {
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.85);
     }
     .partner-confidentiality__header .section-label::before,
     .partner-confidentiality__header .section-label::after {
-      background: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.6);
     }
     .partner-confidentiality__header .section-title { color: #ffffff; }
     .partner-confidentiality__header .section-body {
       color: rgba(255,255,255,0.65);
       margin: 0 auto;
+      max-width: 760px;
     }
 
     .confidentiality-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
     }
     .confidentiality-item {
-      padding: 32px 28px 32px 24px;
+      padding: 24px 28px 24px 24px;
       border-left: 3px solid var(--color-accent);
       background: rgba(255,255,255,0.05);
     }
@@ -306,13 +308,13 @@
        APPLY / FORM
     ====================================================== */
     .partner-apply {
-      padding: var(--section-padding);
+      padding: 80px 24px;
       background: var(--color-bg);
     }
     .partner-apply__inner {
       display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 80px;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 60px;
       align-items: start;
     }
     .partner-apply__info .section-body {
@@ -328,14 +330,14 @@
     }
     .partner-apply__email:hover { text-decoration: underline; }
     .partner-apply__detail {
-      margin-top: 12px;
+      margin-top: 8px;
       font-size: 0.875rem;
       color: var(--color-muted);
       line-height: 1.65;
     }
     .partner-apply__quote {
-      margin-top: 32px;
-      padding: 20px 24px;
+      margin-top: 20px;
+      padding: 14px 20px;
       border-left: 3px solid var(--color-accent);
       background: var(--color-bg-light);
       font-family: var(--font-heading);
