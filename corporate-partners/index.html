@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== CORE SEO ===== -->
+  <title>Corporate Business Partner Programme | CSuite Talent — Revenue-Sharing Executive Search</title>
+  <meta name="description" content="Join the CSuite Talent Corporate Business Partner Programme. Monetise executive search mandates from your existing clients through a transparent, contractual revenue-sharing framework — zero operational burden." />
+  <meta name="author" content="Anil Mahajane" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <link rel="canonical" href="https://csuitetalent.in/corporate-partners" />
+
+  <!-- ===== OPEN GRAPH ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="CSuite Talent" />
+  <meta property="og:title" content="Corporate Business Partner Programme | CSuite Talent" />
+  <meta property="og:description" content="Turn your boardroom relationships into a predictable revenue stream. Partner with CSuite Talent's executive search engine under a transparent, contractual revenue-sharing framework." />
+  <meta property="og:url" content="https://csuitetalent.in/corporate-partners" />
+  <meta property="og:image" content="https://csuitetalent.in/assets/images/hero-bg.jpg" />
+
+  <!-- ===== MOBILE ===== -->
+  <meta name="theme-color" content="#1a1a1a" />
+
+  <!-- ===== FAVICON ===== -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180x180.png" />
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* --- HERO --- */
+    .partner-hero { padding: 88px 40px 80px; }
+    .partner-hero .section-body { max-width: 680px; }
+    .partner-hero__sub {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.95rem;
+      max-width: 640px;
+      margin: 16px auto 32px;
+      line-height: 1.85;
+    }
+
+    /* --- VALUE PROPOSITION --- */
+    .partner-value {
+      padding: var(--section-padding);
+      background: var(--color-bg);
+    }
+    .partner-value__header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 56px;
+    }
+    .partner-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+    .partner-card {
+      padding: 36px 32px;
+      border-right: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-accent);
+      background: var(--color-bg-light);
+    }
+    .partner-card:nth-child(2),
+    .partner-card:nth-child(4) { border-right: none; }
+    .partner-card:nth-child(3),
+    .partner-card:nth-child(4) { border-bottom: none; }
+    .partner-card h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--color-dark);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .partner-card p {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+      line-height: 1.75;
+    }
+
+    /* --- DOMAIN SPECIALISATION --- */
+    .partner-domain {
+      padding: var(--section-padding);
+      background: var(--color-bg-light);
+    }
+    .partner-domain__inner {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .partner-domain__intro p {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      line-height: 1.85;
+      margin-top: 16px;
+    }
+    .partner-domain__verticals h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      color: var(--color-primary);
+      margin-bottom: 20px;
+      font-weight: 700;
+      border-left: 2px solid var(--color-accent);
+      padding-left: 14px;
+    }
+
+    /* --- HOW IT WORKS --- */
+    .partner-process {
+      padding: var(--section-padding);
+      background: var(--color-bg);
+    }
+    .partner-process__header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 56px;
+    }
+    .partner-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .partner-step {
+      padding: 36px 32px;
+      border-right: 1px solid var(--color-border);
+      border-top: 3px solid var(--color-accent);
+      background: var(--color-bg-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .partner-step:last-child { border-right: none; }
+    .partner-step__number {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      color: var(--color-accent);
+      line-height: 1;
+      font-weight: 700;
+      opacity: 0.18;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      pointer-events: none;
+    }
+    .partner-step h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--color-dark);
+      margin: 36px 0 10px;
+      font-weight: 700;
+    }
+    .partner-step p {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+      line-height: 1.75;
+    }
+    .fee-note {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--color-bg);
+      border-left: 2px solid var(--color-accent);
+      font-size: 0.8rem;
+      color: var(--color-primary);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* --- CONFIDENTIALITY (dark section) --- */
+    .partner-confidentiality {
+      padding: var(--section-padding);
+      background: var(--color-primary);
+      color: #ffffff;
+    }
+    .partner-confidentiality__header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .partner-confidentiality__header .section-label {
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+    }
+    .partner-confidentiality__header .section-label::before,
+    .partner-confidentiality__header .section-label::after { background: rgba(255,255,255,0.3); }
+    .partner-confidentiality__header .section-title { color: #ffffff; }
+    .partner-confidentiality__header .section-body {
+      color: rgba(255,255,255,0.65);
+      margin: 0 auto;
+    }
+    .confidentiality-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .confidentiality-item {
+      padding: 32px 28px 32px 24px;
+      border-left: 3px solid var(--color-accent);
+      background: rgba(255,255,255,0.05);
+    }
+    .confidentiality-item h4 {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .confidentiality-item p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+    }
+
+    /* --- ELIGIBILITY --- */
+    .partner-eligibility {
+      padding: var(--section-padding);
+      background: var(--color-bg-light);
+    }
+    .partner-eligibility__inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .eligibility-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .eligibility-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      line-height: 1.65;
+      padding: 16px 20px;
+      background: var(--color-bg);
+      border-left: 2px solid var(--color-border);
+    }
+    .eligibility-list li::before {
+      content: '→';
+      color: var(--color-accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* --- APPLY / FORM --- */
+    .partner-apply {
+      padding: var(--section-padding);
+      background: var(--color-bg);
+    }
+    .partner-apply__inner {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .partner-apply__info .section-body { max-width: none; }
+    .partner-apply__email {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .partner-apply__email:hover { text-decoration: underline; }
+    .partner-apply__detail {
+      margin-top: 12px;
+      font-size: 0.875rem;
+      color: var(--color-muted);
+      line-height: 1.65;
+    }
+    .partner-apply__quote {
+      margin-top: 32px;
+      padding: 20px 24px;
+      border-left: 3px solid var(--color-accent);
+      background: var(--color-bg-light);
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      color: var(--color-primary);
+      font-style: italic;
+      line-height: 1.65;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 900px) {
+      .partner-domain__inner,
+      .partner-eligibility__inner,
+      .partner-apply__inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .partner-hero { padding: 72px 20px 64px; }
+      .partner-cards { grid-template-columns: 1fr; }
+      .partner-card { border-right: none; }
+      .partner-card:nth-child(1),
+      .partner-card:nth-child(2),
+      .partner-card:nth-child(3) { border-bottom: 1px solid var(--color-border); }
+      .partner-steps { grid-template-columns: 1fr; }
+      .partner-step { border-right: none; border-bottom: 1px solid var(--color-border); }
+      .partner-step:last-child { border-bottom: none; }
+      .confidentiality-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/"><span class="nav__logo-line">CSuite <span>Talent</span></span><small>Management Consulting</small></a>
+      <ul class="nav__links">
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#practices">Practices</a></li>
+        <li><a href="/#why">Why Us</a></li>
+        <li><a href="/#process">Process</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/corporate-partners">Partners</a></li>
+        <li><a href="/contact" class="nav__cta">Engage Us</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="vertical-hero partner-hero">
+    <p class="section-label">Corporate Partnership Programme</p>
+    <h1 class="section-title">Expand Your Consulting Portfolio</h1>
+    <p class="section-body">Become a Corporate Business Partner with C-Suite Talent and fulfil your clients' executive search needs under a rewarding, transparent revenue-sharing framework — without taking on any operational delivery.</p>
+    <p class="partner-hero__sub">As a trusted advisor, management consultant, or corporate board member, manufacturing promoters and C-suite executives rely on you for strategic guidance. Often, their biggest roadblock is not strategy — it is leadership execution. Through this programme, you can instantly turn those hiring pain points into a shared corporate mandate.</p>
+    <a href="#apply" class="btn btn--white">Request a Partnership Discussion →</a>
+  </section>
+
+  <!-- VALUE PROPOSITION -->
+  <section class="partner-value">
+    <div class="container">
+      <div class="partner-value__header">
+        <p class="section-label">Why Partner With Us</p>
+        <h2 class="section-title">Turn Client Trust into a Predictable Revenue Stream</h2>
+        <p class="section-body">You have spent years building deep, boardroom-level relationships. We have spent over three decades building a world-class executive search engine tailored to complex technical and infrastructure sectors. By partnering with us, you bridge the gap.</p>
+      </div>
+      <div class="partner-cards">
+        <div class="partner-card">
+          <h4>Monetise Unused Demand</h4>
+          <p>Seamlessly capture executive search mandates from your existing clients instead of letting them wander to generic agencies. Every hiring conversation becomes an opportunity.</p>
+        </div>
+        <div class="partner-card">
+          <h4>Zero Operational Burden</h4>
+          <p>Your role ends at the relationship introduction. C-Suite Talent handles 100% of the candidate mapping, specialised technical vetting, client coordination, and final delivery.</p>
+        </div>
+        <div class="partner-card">
+          <h4>Protect Your Reputation</h4>
+          <p>High-calibre clients require flawless execution. Our deep domain expertise ensures your client receives an elite executive search experience that reflects perfectly on your recommendation.</p>
+        </div>
+        <div class="partner-card">
+          <h4>Lucrative Commercial Splits</h4>
+          <p>Earn a substantial, transparent, and contractually agreed percentage of the final placement fee collected from the client mandate you introduce.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAIN SPECIALISATION -->
+  <section class="partner-domain">
+    <div class="container">
+      <div class="partner-domain__inner">
+        <div class="partner-domain__intro">
+          <p class="section-label">Our Domain Depth</p>
+          <h2 class="section-title" style="text-align:left;">Our Domain Specialisation</h2>
+          <p>Corporate partners choose C-Suite Talent because we are not generic, generalist recruiters. Founded by Anil Mahajane, MBA (IIFT), a former techno-commercial manufacturing executive with VP and CEO-level leadership experience spanning three decades, we speak the exact operational and technical language your clients do.</p>
+        </div>
+        <div class="partner-domain__verticals">
+          <h3>Practice Verticals</h3>
+          <div class="focus-tags">
+            <span class="focus-tag">Healthcare &amp; Hospitals</span>
+            <span class="focus-tag">Defence &amp; Strategic Industries</span>
+            <span class="focus-tag">Global Capability Centres (GCCs)</span>
+            <span class="focus-tag">Consumer Electronics &amp; Technology</span>
+            <span class="focus-tag">Electronics Manufacturing Services (EMS)</span>
+            <span class="focus-tag">Steel Industry</span>
+            <span class="focus-tag">Cement Industry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="partner-process">
+    <div class="container">
+      <div class="partner-process__header">
+        <p class="section-label">Our Partnership Process</p>
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-body">Our engagement model is structured to be clean, professional, and completely secure for both you and your client.</p>
+      </div>
+      <div class="partner-steps">
+        <div class="partner-step">
+          <span class="partner-step__number">1</span>
+          <h4>Secure B2B Agreement</h4>
+          <p>We sign a comprehensive Non-Disclosure Agreement (NDA) and a clear, legally binding Revenue-Sharing Contract to ensure your financial and relationship interests are fully protected before any client details are shared.</p>
+        </div>
+        <div class="partner-step">
+          <span class="partner-step__number">2</span>
+          <h4>Introduce the Mandate</h4>
+          <p>You bridge the initial relationship connection between C-Suite Talent and the hiring client's leadership team regarding their executive position vacancy. Your involvement is complete at this stage.</p>
+        </div>
+        <div class="partner-step">
+          <span class="partner-step__number">3</span>
+          <h4>Shared Success Payout</h4>
+          <p>C-Suite Talent fully executes, sources, and places the candidate. Upon successful closure and client collection, your agreed percentage fee split is processed.</p>
+          <p class="fee-note">Fee split paid within 7 working days of collection from the client introduced by you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIDENTIALITY -->
+  <section class="partner-confidentiality">
+    <div class="container">
+      <div class="partner-confidentiality__header">
+        <p class="section-label">Our Commitment</p>
+        <h2 class="section-title">End-to-End Confidentiality Ensured</h2>
+        <p class="section-body">At the executive level, trust is everything. We understand your client relationships and boardroom access have been built over decades of impeccable professional conduct. Our operational framework is engineered to protect that trust at every stage.</p>
+      </div>
+      <div class="confidentiality-grid">
+        <div class="confidentiality-item">
+          <h4>Mutual Non-Disclosure Agreement</h4>
+          <p>Before a single client detail or mandate requirement is discussed, we execute a comprehensive B2B NDA to legally protect your proprietary business networks.</p>
+        </div>
+        <div class="confidentiality-item">
+          <h4>Whitelabel or Blind Execution</h4>
+          <p>Depending on your preference and client dynamics, we can execute the search as an official delivery partner under your banner, or manage it independently via a blind introduction.</p>
+        </div>
+        <div class="confidentiality-item">
+          <h4>Strict Information Siloing</h4>
+          <p>Client mandates, internal strategic expansions, and sensitive leadership exit timelines are accessible only to senior delivery partners assigned to the specific project.</p>
+        </div>
+        <div class="confidentiality-item">
+          <h4>No Unsolicited Client Contact</h4>
+          <p>C-Suite Talent will never bypass you or approach your introduced corporate clients independently for any future mandates. Your ownership of the client relationship is absolute and contractually respected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELIGIBILITY -->
+  <section class="partner-eligibility">
+    <div class="container">
+      <div class="partner-eligibility__inner">
+        <div>
+          <p class="section-label">Who Should Apply</p>
+          <h2 class="section-title" style="text-align:left;">Who Is Ideal for This Programme?</h2>
+          <p class="section-body" style="max-width:none;margin-top:16px;">This enterprise network is specifically designed for independent firms and senior professionals who maintain active, trusted commercial access to manufacturing promoters, Managing Directors, CEOs, and HR Heads.</p>
+        </div>
+        <ul class="eligibility-list">
+          <li>Boutique Management &amp; Strategy Consultants</li>
+          <li>Independent Board Directors &amp; Corporate Advisors</li>
+          <li>Operations, Lean Manufacturing &amp; Supply Chain Consultants</li>
+          <li>Corporate Legal, Tax &amp; Compliance Advisory Firms</li>
+          <li>Freelance HR Advisors &amp; Organisational Change Consultants</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY / FORM -->
+  <section class="partner-apply" id="apply">
+    <div class="container">
+      <div class="partner-apply__inner">
+
+        <div class="partner-apply__info">
+          <p class="section-label">Get in Touch</p>
+          <h2 class="section-title" style="text-align:left;">Let's Discuss a Strategic Alliance</h2>
+          <p class="section-body" style="max-width:none;">If you are ready to expand your consulting capabilities and unlock a premium revenue stream through your existing network, reach out directly or submit the form and we will connect for a brief introductory discussion.</p>
+          <a class="partner-apply__email" href="mailto:leadership@csuitetalent.in">leadership@csuitetalent.in</a>
+          <p class="partner-apply__detail"><strong>Executive Contact:</strong> Anil Mahajane, MBA (IIFT)<br />Founder &amp; Director, C-Suite Talent Management Consulting</p>
+          <blockquote class="partner-apply__quote">"At C-Suite Talent, we believe enduring partnerships are built on trust, professionalism, transparency, and shared performance."</blockquote>
+        </div>
+
+        <div class="partner-apply__form">
+          <form class="form" action="https://formsubmit.co/leadership@csuitetalent.in" method="POST">
+            <input type="hidden" name="_subject" value="Corporate Partner Application — CSuite Talent" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://csuitetalent.in/corporate-partners" />
+            <input type="text" name="_honey" style="display:none" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cp-name">Full Name</label>
+                <input type="text" id="cp-name" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label for="cp-designation">Designation / Title</label>
+                <input type="text" id="cp-designation" name="designation" placeholder="e.g. Independent Consultant" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cp-company">Company / Consultancy Name</label>
+              <input type="text" id="cp-company" name="company" placeholder="Your firm or practice name" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cp-email">Work Email</label>
+                <input type="email" id="cp-email" name="email" placeholder="you@company.com" required />
+              </div>
+              <div class="form-group">
+                <label for="cp-phone">Phone (Optional)</label>
+                <input type="tel" id="cp-phone" name="phone" placeholder="+91 98000 00000" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cp-vertical">Primary Industry Vertical Handled</label>
+              <select id="cp-vertical" name="vertical" required>
+                <option value="" disabled selected>Select your primary sector</option>
+                <option>Healthcare &amp; Hospitals</option>
+                <option>Defence &amp; Strategic Industries</option>
+                <option>Global Capability Centres (GCCs)</option>
+                <option>Consumer Electronics &amp; Technology</option>
+                <option>Electronics Manufacturing Services (EMS)</option>
+                <option>Steel Industry</option>
+                <option>Cement Industry</option>
+                <option>General Manufacturing</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Preferred Contact Method</label>
+              <div class="form-radios">
+                <label class="radio-label"><input type="radio" name="contact_method" value="Email" checked /> Email</label>
+                <label class="radio-label"><input type="radio" name="contact_method" value="Phone Call" /> Phone Call</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cp-message">Message / Comments</label>
+              <textarea id="cp-message" name="message" placeholder="Briefly describe your client base or any specific mandate you have in mind..."></textarea>
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn--primary" style="width:100%;">Submit Partnership Request →</button>
+            </div>
+            <p class="form-note">We typically respond within one business day. All enquiries are treated with complete discretion.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a class="nav__logo" href="/"><span class="nav__logo-line">CSuite <span>Talent</span></span><small>Management Consulting</small></a>
+        <p>Specialised executive search for C-suite and senior leadership across India and the Middle East.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/#services">Board &amp; C-Suite</a></li>
+          <li><a href="/#services">Confidential Search</a></li>
+          <li><a href="/#services">Specialist Roles</a></li>
+          <li><a href="/#services">Transformation Hiring</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/philosophy">Our Philosophy</a></li>
+          <li><a href="/#process">Our Process</a></li>
+          <li><a href="/corporate-partners">Corporate Partners</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/in/honchohunters" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Practices</h4>
+        <ul>
+          <li><a href="/gcc">GCC &amp; Shared Services</a></li>
+          <li><a href="/defence">Defence &amp; Aerospace</a></li>
+          <li><a href="/healthcare">Healthcare &amp; Clinical</a></li>
+          <li><a href="/electronics">Electronics &amp; Technology</a></li>
+          <li><a href="/cement-steel">Cement, Steel &amp; Materials</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2025 CSuite Talent. All rights reserved.</span>
+      <span>leadership@csuitetalent.in</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Corporate Business Partner Programme — CSuite Talent",
+    "url": "https://csuitetalent.in/corporate-partners",
+    "description": "Join the CSuite Talent Corporate Business Partner Programme. Monetise executive search mandates from your existing clients through a transparent, contractual revenue-sharing framework.",
+    "provider": {
+      "@type": "EmploymentAgency",
+      "name": "CSuite Talent",
+      "url": "https://csuitetalent.in"
+    }
+  }
+  </script>
+</body>
+</html>
