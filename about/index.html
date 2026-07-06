@@ -154,9 +154,21 @@
     .legacy-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: 40px;
       margin-top: 48px;
-      align-items: start;
+      align-items: stretch;
+    }
+    .legacy-narrative {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 36px;
+    }
+    .legacy-recognition {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 36px;
     }
     .legacy-narrative p {
       font-size: 0.95rem;
@@ -533,10 +545,11 @@
     .looking-ahead-section .section-title { color: #ffffff; }
     .looking-ahead-section .section-body { color: rgba(255,255,255,0.65); margin: 0 auto 40px; max-width: 680px; }
     .connect-card {
-      display: inline-block;
+      display: block;
+      max-width: 480px;
+      margin: 0 auto 40px;
       border: 1px solid rgba(255,255,255,0.15);
       padding: 28px 40px;
-      margin-bottom: 40px;
       text-align: center;
     }
     .connect-card__name {
@@ -567,7 +580,9 @@
       text-transform: uppercase;
     }
     .looking-ahead-section .btn--white {
-      display: inline-block;
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
     }
 
     /* ===== RESPONSIVE ===== */
