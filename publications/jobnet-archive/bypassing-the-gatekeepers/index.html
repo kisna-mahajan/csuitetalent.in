@@ -169,13 +169,13 @@
     .checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent); font-weight: 700; }
     .checklist li:last-child { border-bottom: none; }
 
-    .author-card { background: var(--color-bg); border: 1px solid var(--color-border); border-left: 3px solid var(--color-accent); padding: 36px 40px; max-width: 680px; text-align: center; margin: 0 auto; }
+    .author-card { background: var(--color-bg); border: 1px solid var(--color-border); border-left: 3px solid var(--color-accent); padding: 24px 28px; max-width: 680px; text-align: center; margin: 0 auto; }
     .author-card__name { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin-bottom: 4px; }
     .author-card__credential { font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 16px; }
     .author-card p { font-family: var(--font-body); font-size: 0.92rem; line-height: 1.7; color: var(--color-muted); text-align: left; }
     .author-card__services { font-family: var(--font-body); font-size: 0.78rem; color: var(--color-muted); margin-top: 16px; letter-spacing: 0.04em; }
 
-    .article-nav { display: flex; justify-content: center; align-items: flex-start; gap: 48px; max-width: 760px; }
+    .article-nav { display: flex; justify-content: center; align-items: flex-start; gap: 48px; max-width: 760px; margin: 0 auto; }
     .article-nav__link { font-family: var(--font-body); font-size: 0.85rem; color: var(--color-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: gap 0.2s; }
     .article-nav__link:hover { gap: 12px; }
     .article-nav__label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); display: block; margin-bottom: 4px; }
@@ -499,10 +499,10 @@
   </section>
 
   <!-- ABOUT AUTHOR -->
-  <section style="background: var(--color-bg-light); padding: var(--section-padding);">
+  <section style="background: var(--color-bg-light); padding: 48px 24px;">
     <div class="container">
       <p class="section-label">About the Author</p>
-      <div class="author-card" style="margin-top: 36px;">
+      <div class="author-card" style="margin-top: 24px;">
         <p class="author-card__name">Anil Mahajan</p>
         <p class="author-card__credential">MBA (IIFT) · Founder &amp; Director, C-Suite Talent Management Consulting</p>
         <p>With over 30 years of experience, Anil Mahajan has advised organisations on executive search, leadership hiring, talent intelligence and strategic workforce planning. His work spans Global Capability Centres, Defence &amp; Aerospace, Healthcare, Consumer Electronics, Steel, Cement and Infrastructure, helping organisations identify exceptional leaders and helping professionals build successful executive careers.</p>
@@ -515,7 +515,7 @@
   <section style="background: var(--color-bg); padding: var(--section-padding);">
     <div class="container">
       <p class="section-label">Continue Reading</p>
-      <div class="article-nav" style="margin-top: 36px;">
+      <div class="article-nav" style="margin-top: 36px; margin-left: auto; margin-right: auto;">
         <div>
           <span class="article-nav__label">Previous Article</span>
           <a href="../the-gatekeepers/" class="article-nav__link">← The GateKeepers</a>
@@ -531,47 +531,54 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+    <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
-        <a href="../../../" class="footer__logo">
-          <img src="../../../assets/images/Logo.jpg" alt="CSuite Talent" style="height:36px; width:auto;">
-        </a>
-        <p class="footer__tagline">Leadership Assessment. Not CV Matching.</p>
+        <a class="nav__logo" href="/"><span class="nav__logo-line">CSuite <span>Talent</span></span><small>Management Consulting</small></a>
+        <p>Specialised executive search for C-suite and senior leadership across India and the Middle East.</p>
       </div>
-      <div class="footer__links">
-        <div class="footer__col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="../../../about/">About</a></li>
-            <li><a href="../../../philosophy/">Our Philosophy</a></li>
-            <li><a href="../../jobnet-archive/">Publications</a></li>
-            <li><a href="../../../contact/">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="../../../corporate-partners/">Corporate Partners</a></li>
-            <li><a href="../../../gcc/">GCC Leadership</a></li>
-            <li><a href="../../../defence/">Defence &amp; Aerospace</a></li>
-            <li><a href="../../../healthcare/">Healthcare</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Archive</h4>
-          <ul>
-            <li><a href="../../jobnet-archive/">JOBNET Archive</a></li>
-            <li><a href="../the-gatekeepers/">The GateKeepers</a></li>
-            <li><a href="../bypassing-the-gatekeepers/">Bypassing the GateKeepers</a></li>
-            <li><a href="../views-on-the-interview/">Views on the Interview</a></li>
-          </ul>
-        </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/#services">Board &amp; C-Suite</a></li>
+          <li><a href="/#services">Confidential Search</a></li>
+          <li><a href="/#services">Specialist Roles</a></li>
+          <li><a href="/#services">Transformation Hiring</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/philosophy/">Our Philosophy</a></li>
+          <li><a href="/corporate-partners/">Corporate Partners</a></li>
+          <li><a href="/contact/">Engage Us</a></li>
+          <li><a href="https://www.linkedin.com/in/honchohunters" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Publications</h4>
+        <ul>
+          <li><a href="/publications/jobnet-archive/">JOBNET Archive</a></li>
+          <li><a href="/leadership/client-recognition/">Client Recognition</a></li>
+          <li><a href="/leadership/research-citations/">Research Citations</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Practices</h4>
+        <ul>
+          <li><a href="/gcc/">GCC &amp; Shared Services</a></li>
+          <li><a href="/defence/">Defence &amp; Aerospace</a></li>
+          <li><a href="/healthcare/">Healthcare &amp; Clinical</a></li>
+          <li><a href="/electronics/">Electronics &amp; Technology</a></li>
+          <li><a href="/cement-steel/">Cement, Steel &amp; Materials</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© 2026 C-Suite Talent Management Consulting. All rights reserved.</p>
+      <span>&copy; 2026 CSuite Talent. All rights reserved.</span>
+      <span>leadership@csuitetalent.in</span>
     </div>
   </footer>
 
