@@ -104,16 +104,17 @@
     @media (max-width: 540px) { .insight-pair { grid-template-columns: 1fr; } }
 
     /* ── Author card ── */
-    .author-card { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 32px; }
+    .author-card { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 32px; text-align: center; }
+    .author-bio { text-align: left; }
     .author-name { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 4px; }
     .author-creds { font-size: 0.82rem; color: var(--color-accent); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 16px; }
     .author-bio { font-size: 0.9rem; line-height: 1.75; color: #444; }
 
     /* ── Article nav ── */
-    .article-nav { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-border); flex-wrap: wrap; }
+    .article-nav { display: flex; justify-content: center; gap: 48px; align-items: flex-start; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-border); flex-wrap: wrap; }
     .article-nav a { font-size: 0.88rem; color: var(--color-accent); text-decoration: none; font-weight: 600; max-width: 240px; }
     .article-nav a:hover { text-decoration: underline; }
-    .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted); margin-bottom: 4px; font-weight: 600; }
+    .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted); margin-bottom: 4px; font-weight: 600; text-align: center; }
     .archive-return { text-align: center; margin-top: 28px; }
     .archive-return a { font-size: 0.85rem; color: var(--color-muted); text-decoration: none; }
     .archive-return a:hover { color: var(--color-accent); }
@@ -365,7 +366,7 @@
           <div class="nav-label">Previous Article</div>
           <a href="../feel-good-factor-resume-shining/">← Feel Good Factor – Is Your Resume Shining?</a>
         </div>
-        <div style="text-align:right;">
+        <div style="text-align:center;">
           <div class="nav-label">Next Article</div>
           <a href="../whos-the-boss/">Who's The Boss? →</a>
         </div>

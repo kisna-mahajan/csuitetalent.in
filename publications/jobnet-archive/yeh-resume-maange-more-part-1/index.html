@@ -192,13 +192,13 @@
     .checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent); font-weight: 700; }
     .checklist li:last-child { border-bottom: none; }
 
-    .author-card { background: var(--color-bg); border: 1px solid var(--color-border); border-left: 3px solid var(--color-accent); padding: 36px 40px; max-width: 680px; }
+    .author-card { background: var(--color-bg); border: 1px solid var(--color-border); border-left: 3px solid var(--color-accent); padding: 36px 40px; max-width: 680px; text-align: center; margin: 0 auto; }
     .author-card__name { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin-bottom: 4px; }
     .author-card__credential { font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 16px; }
-    .author-card p { font-family: var(--font-body); font-size: 0.92rem; line-height: 1.7; color: var(--color-muted); }
+    .author-card p { font-family: var(--font-body); font-size: 0.92rem; line-height: 1.7; color: var(--color-muted); text-align: left; }
     .author-card__services { font-family: var(--font-body); font-size: 0.78rem; color: var(--color-muted); margin-top: 16px; letter-spacing: 0.04em; }
 
-    .article-nav { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; max-width: 760px; }
+    .article-nav { display: flex; justify-content: center; align-items: flex-start; gap: 48px; max-width: 760px; }
     .article-nav__link { font-family: var(--font-body); font-size: 0.85rem; color: var(--color-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: gap 0.2s; }
     .article-nav__link:hover { gap: 12px; }
     .article-nav__label { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); display: block; margin-bottom: 4px; }
@@ -563,7 +563,7 @@
           <span class="article-nav__label">Previous Article</span>
           <a href="../cover-letter-provides-great-cover/" class="article-nav__link">← Cover Letter Provides Great Cover</a>
         </div>
-        <div style="text-align: right;">
+        <div style="text-align: center;">
           <span class="article-nav__label">Next Article</span>
           <a href="../yeh-resume-maange-more-part-2/" class="article-nav__link">Yeh Resume Maange More – Part II →</a>
         </div>
