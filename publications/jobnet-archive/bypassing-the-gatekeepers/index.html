@@ -169,7 +169,7 @@
     .checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent); font-weight: 700; }
     .checklist li:last-child { border-bottom: none; }
 
-    .author-card { background: var(--color-bg); border: 1px solid var(--color-border); border-left: 3px solid var(--color-accent); padding: 24px 28px; max-width: 680px; text-align: center; margin: 0 auto; }
+    .author-card { max-width: 640px; margin: 0 auto; text-align: center; padding: 0; }
     .author-card__name { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--color-primary); margin-bottom: 4px; }
     .author-card__credential { font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 12px; display: block; }
     .author-card p { font-family: var(--font-body); font-size: 0.92rem; line-height: 1.7; color: var(--color-muted); text-align: left; }
@@ -502,11 +502,10 @@
   <section style="background: var(--color-bg-light); padding: 48px 24px;">
     <div class="container">
       <p class="section-label">About the Author</p>
-      <div class="author-card" style="margin-top: 24px;">
-        <p class="author-card__name">Anil Mahajan</p>
-        <p class="author-card__credential">MBA (IIFT) · Founder &amp; Director, C-Suite Talent Management Consulting</p>
-        <p>With over 30 years of experience, Anil Mahajan has advised organisations on executive search, leadership hiring, talent intelligence and strategic workforce planning. His work spans Global Capability Centres, Defence &amp; Aerospace, Healthcare, Consumer Electronics, Steel, Cement and Infrastructure, helping organisations identify exceptional leaders and helping professionals build successful executive careers.</p>
-        <p class="author-card__services">Executive Search &nbsp;·&nbsp; Leadership Advisory &nbsp;·&nbsp; Talent Intelligence</p>
+            <div style="max-width: 640px; margin: 24px auto 0; text-align: center;">
+        <p style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--color-primary); margin-bottom: 4px;">Anil Mahajan</p>
+        <p style="font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 16px;">MBA (IIFT) &middot; Founder &amp; Director, C-Suite Talent Management Consulting</p>
+        <p style="font-family: var(--font-body); font-size: 0.92rem; line-height: 1.7; color: var(--color-muted);">30+ years of executive search and leadership advisory across India and the Middle East &mdash; spanning GCCs, Defence &amp; Aerospace, Healthcare, Consumer Electronics, Steel, Cement and Infrastructure.</p>
       </div>
     </div>
   </section>
