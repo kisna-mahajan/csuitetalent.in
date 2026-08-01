@@ -1058,12 +1058,16 @@ a  { color: inherit; text-decoration: none; }
   top: 2px;
 }
 
-/* ===== ROLE GRID (auto-fit columns) ===== */
+/* ===== ROLE GRID ===== */
 .role-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* default: works for 3 and 6 items (3×1, 3×2) */
   gap: 0;
   margin-top: 8px;
+}
+
+.role-grid--4 {
+  grid-template-columns: repeat(4, 1fr); /* explicit 4-col for 4-item grids */
 }
 
 .role-col {
@@ -1185,9 +1189,10 @@ a  { color: inherit; text-decoration: none; }
   .other-card:nth-child(2n) { border-right: none; }
   .other-card:nth-child(3), .other-card:nth-child(4) { border-top: 1px solid var(--color-border); }
   .method-grid { grid-template-columns: repeat(5, 1fr); }
-  .role-grid { grid-template-columns: repeat(2, 1fr); }
-  .role-col:nth-child(2n) { border-right: none; }
-  .role-col:nth-child(n+3) { border-top: 1px solid var(--color-border); }
+  /* role-grid: keep 3-col at 1024px — adequate width */
+  .role-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .role-grid--4 .role-col:nth-child(2n) { border-right: none; }
+  .role-grid--4 .role-col:nth-child(n+3) { border-top: 1px solid var(--color-border); }
 }
 
 @media (max-width: 768px) {
@@ -1254,7 +1259,8 @@ a  { color: inherit; text-decoration: none; }
 
   .bullets2 { grid-template-columns: 1fr; gap: 6px; }
 
-  .role-grid { grid-template-columns: 1fr 1fr; }
+  /* role-grid: 2-col on tablet for both default and --4 */
+  .role-grid, .role-grid--4 { grid-template-columns: repeat(2, 1fr); }
   .role-col:nth-child(2n) { border-right: none; }
   .role-col:nth-child(n+3) { border-top: 1px solid var(--color-border); }
 }
