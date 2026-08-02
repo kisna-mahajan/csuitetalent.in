@@ -29,17 +29,18 @@ document.querySelectorAll('.nav__dropdown-toggle').forEach(toggle => {
     const isMobile = window.innerWidth <= 768;
     if (isMobile) {
       e.preventDefault();
+      e.stopPropagation(); // prevent outside-click handler from immediately closing
       const parent = toggle.closest('.nav__dropdown');
       const wasOpen = parent.classList.contains('is-open');
-      // Close all others
+      // Close all others first
       document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
       if (!wasOpen) parent.classList.add('is-open');
-      toggle.setAttribute('aria-expanded', !wasOpen);
+      toggle.setAttribute('aria-expanded', String(!wasOpen));
     }
   });
 });
 
-// Close dropdowns when clicking outside
+// Close dropdowns when clicking outside (but not when tapping a toggle — that uses stopPropagation)
 document.addEventListener('click', e => {
   if (!e.target.closest('.nav__dropdown')) {
     document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));

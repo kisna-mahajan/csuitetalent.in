@@ -24,7 +24,19 @@
     /* ── Hero overrides ─────────────────────────────────────────── */
     .jobnet-hero {
       padding: 120px 24px 96px;
+      background-image: url('../../assets/images/jobnet-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
     }
+    .jobnet-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 15, 30, 0.65);
+      z-index: 0;
+    }
+    .jobnet-hero > * { position: relative; z-index: 1; }
 
     .jobnet-hero .section-label {
       justify-content: center;
