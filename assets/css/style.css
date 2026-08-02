@@ -157,7 +157,6 @@ a  { color: inherit; text-decoration: none; }
   z-index: 200;
 }
 
-.nav__dropdown:hover .nav__dropdown-menu,
 .nav__dropdown.is-open .nav__dropdown-menu {
   opacity: 1;
   visibility: visible;
@@ -1191,8 +1190,7 @@ a  { color: inherit; text-decoration: none; }
     z-index: auto;
   }
 
-  /* Critical: override the desktop is-open/hover transform so menu isn't shifted off-screen */
-  .nav__dropdown:hover .nav__dropdown-menu,
+  /* Override desktop is-open transform so menu isn't shifted off-screen on mobile */
   .nav__dropdown.is-open .nav__dropdown-menu {
     transform: none !important;
     position: static !important;

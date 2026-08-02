@@ -23,24 +23,43 @@ if (hamburger && navLinks) {
   });
 }
 
-// Dropdown toggle (click, for mobile and accessibility)
+// Dropdown toggle — never navigate, always open/close
 document.querySelectorAll('.nav__dropdown-toggle').forEach(toggle => {
   toggle.addEventListener('click', e => {
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile) {
-      e.preventDefault();
-      e.stopPropagation(); // prevent outside-click handler from immediately closing
-      const parent = toggle.closest('.nav__dropdown');
-      const wasOpen = parent.classList.contains('is-open');
-      // Close all others first
-      document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
-      if (!wasOpen) parent.classList.add('is-open');
-      toggle.setAttribute('aria-expanded', String(!wasOpen));
+    e.preventDefault();
+    e.stopPropagation();
+    const parent = toggle.closest('.nav__dropdown');
+    const wasOpen = parent.classList.contains('is-open');
+    document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+    if (!wasOpen) parent.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', String(!wasOpen));
+  });
+});
+
+// Desktop hover — open on enter, close 2 seconds after mouse leaves
+const _dropdownTimers = new WeakMap();
+document.querySelectorAll('.nav__dropdown').forEach(dropdown => {
+  dropdown.addEventListener('mouseenter', () => {
+    if (window.innerWidth > 768) {
+      clearTimeout(_dropdownTimers.get(dropdown));
+      dropdown.classList.add('is-open');
+      const toggle = dropdown.querySelector('.nav__dropdown-toggle');
+      if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+  dropdown.addEventListener('mouseleave', () => {
+    if (window.innerWidth > 768) {
+      const t = setTimeout(() => {
+        dropdown.classList.remove('is-open');
+        const toggle = dropdown.querySelector('.nav__dropdown-toggle');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }, 2000);
+      _dropdownTimers.set(dropdown, t);
     }
   });
 });
 
-// Close dropdowns when clicking outside (but not when tapping a toggle — that uses stopPropagation)
+// Close dropdowns when clicking outside
 document.addEventListener('click', e => {
   if (!e.target.closest('.nav__dropdown')) {
     document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
