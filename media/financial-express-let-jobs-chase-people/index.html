@@ -87,6 +87,13 @@
     .author-strip__name { font-family: var(--font-heading); font-size: 1.2rem; color: var(--color-primary); margin-bottom: 4px; }
     .author-strip__creds { font-size: 0.82rem; color: var(--color-accent); font-weight: 600; margin-bottom: 10px; }
     .author-strip__bio { font-size: 0.88rem; line-height: 1.7; color: var(--color-muted); max-width: 600px; }
+
+    @media (max-width: 768px) {
+      .article-body { padding-left: 20px; padding-right: 20px; }
+    }
+    @media (max-width: 480px) {
+      .pub-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
