@@ -292,8 +292,6 @@ a  { color: inherit; text-decoration: none; }
 }
 .btn--outline:hover { border-color: #ffffff; background: rgba(255,255,255,0.08); }
 
-.btn--dark  { background: var(--color-dark); color: #ffffff; }
-.btn--dark:hover { background: #333; }
 
 .btn--white { background: #ffffff; color: var(--color-accent); font-weight: 700; }
 .btn--white:hover { background: #e8eeff; }
@@ -345,14 +343,6 @@ a  { color: inherit; text-decoration: none; }
   color: var(--color-muted);
   max-width: 560px;
   line-height: 1.8;
-}
-
-/* ===== SECTION DIVIDER ===== */
-.section-divider {
-  width: 48px;
-  height: 2px;
-  background: var(--color-accent);
-  margin: 0 auto 40px;
 }
 
 /* ===== SERVICES ===== */
@@ -439,7 +429,6 @@ a  { color: inherit; text-decoration: none; }
 /* ===== WHY US ===== */
 .why {
   padding: var(--section-padding);
-  background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -585,7 +574,6 @@ a  { color: inherit; text-decoration: none; }
 
 /* ===== CTA BANNER ===== */
 .cta-banner {
-  background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80');
   background-size: cover;
   background-position: center;
   color: #ffffff;
@@ -613,14 +601,6 @@ a  { color: inherit; text-decoration: none; }
 .cta-banner .section-body  { color: rgba(255,255,255,0.75); margin: 0 auto 40px; }
 
 /* ===== MEDIA THUMBNAILS ===== */
-.media-thumb {
-  width: 56px;
-  height: 56px;
-  object-fit: cover;
-  border-radius: 3px;
-  flex-shrink: 0;
-  border: 1px solid var(--color-border);
-}
 
 /* ===== FOOTER ===== */
 .footer {
@@ -778,39 +758,8 @@ a  { color: inherit; text-decoration: none; }
 .vertical-hero[style*="text-align:left"] .section-title,
 .vertical-hero[style*="text-align:left"] .section-body { margin-left: 0; margin-right: auto; text-align: left; }
 
-.vertical-hero__positioning {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.5);
-  font-style: italic;
-  margin-top: 12px;
-  max-width: 540px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-/* ===== FOCUS SECTION ===== */
-.focus-section {
-  padding: var(--section-padding);
-  background: var(--color-bg);
-}
-
-.focus-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.focus-col h3, .roles-col h3 {
-  font-family: var(--font-heading);
-  font-size: 1.05rem;
-  color: var(--color-primary);
-  margin-bottom: 20px;
-  font-weight: 700;
-  border-left: 2px solid var(--color-accent);
-  padding-left: 14px;
-}
-
+/* ===== FOCUS TAGS (corporate-partners) ===== */
 .focus-tags {
   display: flex;
   flex-wrap: wrap;
@@ -824,27 +773,6 @@ a  { color: inherit; text-decoration: none; }
   border: 1px solid var(--color-border);
   padding: 6px 14px;
   font-weight: 500;
-}
-
-.role-groups { display: flex; flex-direction: column; gap: 24px; }
-
-.role-group h4 {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 10px;
-}
-
-.role-items { display: flex; flex-wrap: wrap; gap: 8px; }
-
-.role-item {
-  font-size: 0.82rem;
-  color: var(--color-primary);
-  background: var(--color-bg-light);
-  border: 1px solid var(--color-border);
-  padding: 5px 12px;
 }
 
 /* ===== WHY BRIEF (vertical pages) ===== */
@@ -926,60 +854,6 @@ a  { color: inherit; text-decoration: none; }
   letter-spacing: 0;
 }
 .radio-label input { accent-color: var(--color-accent); }
-
-/* ===== OTHER PRACTICES (vertical pages) ===== */
-.other-practices {
-  padding: var(--section-padding);
-  background: var(--color-bg);
-}
-
-.other-practices__header { text-align: center; margin-bottom: 48px; }
-
-.other-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-}
-
-.other-card {
-  padding: 28px 24px;
-  border-right: 1px solid var(--color-border);
-  border-top: 2px solid var(--color-border);
-  text-decoration: none;
-  transition: background 0.2s;
-  display: block;
-  color: inherit;
-}
-
-.other-card:last-child { border-right: none; }
-.other-card:hover { background: var(--color-bg-light); }
-
-.other-card__label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 8px;
-}
-
-.other-card__title {
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  color: var(--color-dark);
-  line-height: 1.35;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.other-card__link {
-  font-size: 0.78rem;
-  color: var(--color-muted);
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.other-card:hover .other-card__link { color: var(--color-accent); }
 
 /* ===== GENERIC SECTION (practice pages + recognition) ===== */
 .section {
@@ -1079,11 +953,6 @@ a  { color: inherit; text-decoration: none; }
   flex-wrap: wrap;
 }
 
-/* ===== BTN SM ===== */
-.btn--sm {
-  padding: 8px 20px;
-  font-size: 0.8rem;
-}
 
 /* ===== METHOD GRID (10-step, 5 per row) ===== */
 .method-grid {
@@ -1274,9 +1143,6 @@ a  { color: inherit; text-decoration: none; }
   .why-brief__points { grid-template-columns: 1fr; }
   .why-brief__point { border-right: none; border-top: none; border-bottom: 1px solid var(--color-border); }
   .why-brief__point:first-child { border-top: 3px solid var(--color-accent); }
-  .other-cards { grid-template-columns: repeat(2, 1fr); }
-  .other-card:nth-child(2n) { border-right: none; }
-  .other-card:nth-child(3), .other-card:nth-child(4) { border-top: 1px solid var(--color-border); }
   .method-grid { grid-template-columns: repeat(5, 1fr); }
   /* role-grid: keep 3-col at 1024px — adequate width */
   .role-grid--4 { grid-template-columns: repeat(2, 1fr); }
@@ -1383,8 +1249,6 @@ a  { color: inherit; text-decoration: none; }
   .practice-card:nth-child(2n) { border-right: none; }
   .practice-card:nth-child(2n+1) { border-right: 1px solid var(--color-border); }
 
-  .focus-grid { grid-template-columns: 1fr; gap: 48px; }
-  .other-cards { grid-template-columns: 1fr 1fr; }
   .vertical-hero { padding: 72px 20px 64px; }
 
   /* Practice page components */
@@ -1411,8 +1275,6 @@ a  { color: inherit; text-decoration: none; }
   .practice-card { border-right: none; border-bottom: 1px solid var(--color-border); }
   .practice-card:first-child { border-top: 3px solid var(--color-accent); }
   .practice-card:nth-child(n+2) { border-top: 1px solid var(--color-border); }
-  .other-cards { grid-template-columns: 1fr; }
-  .other-card { border-right: none; }
   .role-grid, .role-grid--4 { grid-template-columns: 1fr; }
   .role-col { border-right: none; border-top: 1px solid var(--color-border); }
   .role-col:first-child { border-top: 3px solid var(--color-accent); }
