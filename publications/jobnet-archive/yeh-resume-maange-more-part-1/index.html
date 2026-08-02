@@ -212,16 +212,37 @@
 <body>
 
   <!-- NAV -->
-  <nav class="nav">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="../../../" class="nav__logo">
-        <img src="../../../assets/images/Logo.jpg" alt="CSuite Talent" class="nav__logo-img">
-      </a>
+      <a class="nav__logo" href="/"><span class="nav__logo-line">CSuite <span>Talent</span></span><small>Management Consulting</small></a>
       <ul class="nav__links">
-        <li><a href="../../../">Home</a></li>
-        <li><a href="../../../about/">About</a></li>
-        <li><a href="../../../contact/" class="nav__cta">Engage Us</a></li>
+        <li><a href="/">Home</a></li>
+        <li class="nav__dropdown">
+          <a href="/#practices" class="nav__dropdown-toggle" aria-haspopup="true" aria-expanded="false">Industry Expertise</a>
+          <div class="nav__dropdown-menu" role="menu">
+            <a href="/gcc/" role="menuitem">GCC &amp; Shared Services</a>
+            <a href="/defence/" role="menuitem">Defence &amp; Aerospace</a>
+            <a href="/healthcare/" role="menuitem">Healthcare &amp; Hospitals</a>
+            <a href="/electronics/" role="menuitem">Electronics &amp; Semiconductors</a>
+            <a href="/steel/" role="menuitem">Steel &amp; Metals</a>
+            <a href="/cement/" role="menuitem">Cement &amp; Building Materials</a>
+          </div>
+        </li>
+        <li><a href="/about/">About</a></li>
+        <li class="nav__dropdown">
+          <a href="/publications/jobnet-archive/" class="nav__dropdown-toggle" aria-haspopup="true" aria-expanded="false">Publications &amp; Media</a>
+          <div class="nav__dropdown-menu" role="menu">
+            <a href="/publications/jobnet-archive/" role="menuitem">JOBNET Archive</a>
+            <a href="/leadership/media-recognition/" role="menuitem">Media Recognition</a>
+            <a href="/leadership/client-recognition/" role="menuitem">Client Recognition</a>
+            <a href="/leadership/research-citations/" role="menuitem">Research Citations</a>
+          </div>
+        </li>
+        <li><a href="/contact/" class="nav__cta">Engage Us</a></li>
       </ul>
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
@@ -604,17 +625,19 @@
         <ul>
           <li><a href="/publications/jobnet-archive/">JOBNET Archive</a></li>
           <li><a href="/leadership/client-recognition/">Client Recognition</a></li>
+            <li><a href="/leadership/media-recognition/">Media Recognition</a></li>
           <li><a href="/leadership/research-citations/">Research Citations</a></li>
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Practices</h4>
+        <h4>Industry Expertise</h4>
         <ul>
           <li><a href="/gcc/">GCC &amp; Shared Services</a></li>
           <li><a href="/defence/">Defence &amp; Aerospace</a></li>
-          <li><a href="/healthcare/">Healthcare &amp; Clinical</a></li>
-          <li><a href="/electronics/">Electronics &amp; Technology</a></li>
-          <li><a href="/cement-steel/">Cement, Steel &amp; Materials</a></li>
+          <li><a href="/healthcare/">Healthcare &amp; Hospitals</a></li>
+          <li><a href="/electronics/">Electronics &amp; Semiconductors</a></li>
+          <li><a href="/steel/">Steel &amp; Metals</a></li>
+            <li><a href="/cement/">Cement &amp; Building Materials</a></li>
         </ul>
       </div>
     </div>

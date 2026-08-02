@@ -17,11 +17,34 @@ if (hamburger && navLinks) {
     hamburger.setAttribute('aria-expanded', expanded);
   });
 
-  // Close nav when a link is clicked
-  navLinks.querySelectorAll('a').forEach(link => {
+  // Close nav when a non-dropdown link is clicked
+  navLinks.querySelectorAll('a:not(.nav__dropdown-toggle)').forEach(link => {
     link.addEventListener('click', () => navLinks.classList.remove('is-open'));
   });
 }
+
+// Dropdown toggle (click, for mobile and accessibility)
+document.querySelectorAll('.nav__dropdown-toggle').forEach(toggle => {
+  toggle.addEventListener('click', e => {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      e.preventDefault();
+      const parent = toggle.closest('.nav__dropdown');
+      const wasOpen = parent.classList.contains('is-open');
+      // Close all others
+      document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+      if (!wasOpen) parent.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', !wasOpen);
+    }
+  });
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav__dropdown')) {
+    document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+  }
+});
 
 // Smooth reveal on scroll
 const observer = new IntersectionObserver(
@@ -40,8 +63,6 @@ document.querySelectorAll('.service-card, .step, .stat, .practice-card, .why-bri
   el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
   observer.observe(el);
 });
-
-document.addEventListener('animationframe', () => {}, { passive: true });
 
 // Add visible class styles via JS (avoids FOUC without extra CSS)
 const style = document.createElement('style');
