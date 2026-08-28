@@ -24,7 +24,8 @@
   <link rel="stylesheet" href="../../../../assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" /></noscript>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -114,7 +115,7 @@
   <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a class="nav__logo" href="/"><img src="../../../assets/images/main-logo.png" alt="CSuite Talent Management Consulting" width="666" height="169" /></a>
+      <a class="nav__logo" href="/"><picture><source srcset="../../../assets/images/main-logo.webp" type="image/webp" /><img src="../../../assets/images/main-logo.png" alt="CSuite Talent Management Consulting" width="666" height="169" /></picture></a>
       <ul class="nav__links">
         <li><a href="/">Home</a></li>
         <li class="nav__dropdown">
@@ -288,7 +289,7 @@
 <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
-        <a class="nav__logo" href="/"><img src="../../../assets/images/main-logo.png" alt="CSuite Talent Management Consulting" width="666" height="169" /></a>
+        <a class="nav__logo" href="/"><picture><source srcset="../../../assets/images/main-logo.webp" type="image/webp" /><img src="../../../assets/images/main-logo.png" alt="CSuite Talent Management Consulting" width="666" height="169" /></picture></a>
         <p>Specialised executive search for C-suite and senior leadership across India and the Middle East.</p>
       </div>
       <div class="footer__col">
