@@ -34,7 +34,7 @@ Forms post to formsubmit.co (no backend).
 - Never commit secrets or API keys
 - Images under 300KB
 - Do NOT add package.json, Node, or any build system
-- Never use em dashes (— or &mdash;) anywhere in site text, titles or meta; use a hyphen "-" (owner preference, applied sitewide Oct 2026)
+- Never use em dashes (— / &mdash;) or en dashes (– / &ndash;) anywhere in site text, titles, meta or structured data; use a plain hyphen "-" (owner preference, applied sitewide Oct 2026)
 - No horizontal overflow on mobile: every change must be checked at 320, 360 and 390px wide
 - Design/UX work must not change content (wording, headings, images) unless the owner asks
 
@@ -53,6 +53,9 @@ Clean typography, generous whitespace, fast load times.
 - Current page/section highlighting is done in main.js (`aria-current`, `.is-current`) from `location.pathname` - no per-page markup.
 - Every page: `<a class="skip-link" href="#main">`, `<main id="main" tabindex="-1">` between nav and footer, footer column headings are `<h2>`.
 - Most inner pages also have a page-specific inline `<style>` block that loads AFTER style.css, so same-specificity inline rules win. Check the inline block before assuming a style.css change applies.
+- **Template CSS lives in style.css, scoped by a body class**: `body.tpl-media-article` (17 press articles), `body.tpl-jobnet` (8 JOBNET articles, dark-hero template), `body.tpl-jobnet-alt` (4 JOBNET articles, breadcrumb-bar template). Those rules are written `:where(.tpl-x) selector` (zero added specificity) in blocks at the END of style.css, so they behave exactly like the inline blocks they replaced; whatever differs per page stays in that page's inline `<style>`. A new press/JOBNET article must carry the matching body class.
+- Steel/cement components use `sector-*` classes (`sector-point`, `sector-roles`, `sector-steps`, `sector-section--light/--white`, `sector-note`, `sector-tagline`) defined at the end of style.css; only their hero background-image stays inline.
+- **Search (Google) conventions**: every page is its own `index.html` URL with one `<h1>`, a unique title/description, and a canonical URL with trailing slash; `og:url` and JSON-LD `url` values use the same trailing-slash form; every indexable page is listed in sitemap.xml (update `lastmod` when pages change); noindex pages (thank-you) stay out of the sitemap. All navigation is plain `<a href>` in the HTML (menus too), so crawlers never need JS.
 - Breakpoints: 1024 (tablet), 960 (nav), 768 (phone; sections get the 20px gutter via `--section-padding: 64px 20px` and `section .container` drops its own padding), 600, 480.
 - Tokens in `:root`: `--color-muted #555`, `--color-accent #2251ff`, `--color-accent-on-dark #8da9ff` (use on dark backgrounds), `--measure 62ch` (long-form line length).
 - Scroll reveal: main.js adds `.reveal` only if IntersectionObserver exists and reduced motion is not requested; content is never hidden without JS or when printing.
@@ -67,19 +70,20 @@ Clean typography, generous whitespace, fast load times.
 - Links are root-absolute (`/about/`) throughout, contrary to the "relative links" rule above. They work on GitHub Pages with the custom domain; converting would touch every page.
 - Image over the 300KB rule: `hero-bg.jpg` (~2.5MB, 5184px; home hero + og:image on 7 pages). All other referenced images were re-encoded under 300KB in Oct 2026 (scans keep full resolution for the zoom viewer). Re-encode recipe: Pillow, progressive JPEG, max 2400px wide for heroes, highest quality that fits 290KB.
 - ~10MB of unreferenced images sit untracked in assets/images (`publications *.jpeg`, `rc *.JPG`, `cr 1.jpeg`, `Philosophy hero.jpg`, `hero-bg_old.jpg`, `Main Logo.png`).
-- leadership/research-citations og:image and twitter:image point to `/assets/images/assets/images/research/hr-outsourcing-p1.jpg` (doubled path), so social previews of that page have no image.
-- steel/ and cement/ carry ~200 inline `style=""` attributes each; JOBNET articles use two different templates (4 use the `.breadcrumb`/`.article-section` template).
+- JOBNET articles still use two different templates (4 use the `.breadcrumb`/`.article-section` markup); about, corporate-partners, research, client-recognition, philosophy and the two hubs keep large page-specific inline `<style>` blocks (one page each, nothing to deduplicate).
 - Media article pages reference assets with `../../../../` (climbs above root; works only because browsers clamp at root).
 
 ## Pending work (priority order)
 1. Re-export `hero-bg.jpg` under 300KB once the owner's replacement is final; consider a 1200px phone hero.
-2. Move duplicated inline styles (steel/cement, article templates, form CSS) into style.css; unify the two JOBNET article templates.
-3. Owner decisions from the Oct 2026 UX review (not done because they change structure/content): move the "Why" stats up on home; put JOBNET article text before the scans; breadcrumb "Home / About / JOBNET Archive" vs nav placement; "next article" link on the FE article and a slim cross-link row at the end of the four hubs; About 2000-timeline "Read More" points to the media hub rather than the FE article; tap-to-call in the mobile header.
+2. Unify the two JOBNET article templates (markup change; then merge tpl-jobnet-alt into tpl-jobnet).
+3. Optional custom 404.html (GitHub Pages serves its default 404 today); needs owner-approved wording.
+4. Owner decisions from the Oct 2026 UX review (not done because they change structure/content): move the "Why" stats up on home; put JOBNET article text before the scans; breadcrumb "Home / About / JOBNET Archive" vs nav placement; "next article" link on the FE article and a slim cross-link row at the end of the four hubs; About 2000-timeline "Read More" points to the media hub rather than the FE article; tap-to-call in the mobile header.
 
 ## Decisions log
 - Oct 2026 UX overhaul (3 independent reviewers: navigation, visual, audience/accessibility): sticky header fixed (overflow-x on both html and body had made body the scroll container), 960px nav, touch/keyboard menus, AA contrast, phone gutters, thank-you page, lightbox, back-to-top. Content deliberately untouched apart from the em-dash change the owner requested; "Skip to content" is the only added visible text (keyboard focus only), plus the thank-you page copy.
-- Em dashes replaced with hyphens everywhere (owner request). Unspaced "a-b" became "a - b".
+- Em dashes and then en dashes replaced with hyphens everywhere (owner request; the owner reads both as "big hyphens"). An unspaced dash between two words became " - ".
 - Thank-you page instead of an in-page banner: the confirmation is the first thing on screen with no scrolling (owner request).
+- Inline-CSS refactor (Oct 2026) was verified by snapshotting the computed style + geometry of every element on all 45 pages at 1440/820/390px before and after (must be identical within 0.3px), plus a pixel comparison. Moving a shared rule out of an inline block is only safe if no rule left on that page, earlier in source and on the same selector with overlapping properties, would start overriding it.
 
 ## Gotchas
 - Never put `overflow-x` on both `html` and `body` - it breaks the sticky header. Only `html` has it.
@@ -87,3 +91,4 @@ Clean typography, generous whitespace, fast load times.
 - `.section-label` is `display:block` and follows its parent's `text-align`; to centre a label, centre its container.
 - Watermark numbers (`.step__number`, `.archive-item__num`, `.partner-step__number`) are intentionally faint decoration.
 - formsubmit.co requires absolute `_next` URLs.
+- The `:where(.tpl-*)` and `sector-*` blocks must stay at the END of style.css: they rely on coming after every base rule, as the inline blocks did.
