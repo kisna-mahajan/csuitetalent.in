@@ -1049,6 +1049,108 @@ fieldset.form-group { border: 0; padding: 0; margin: 0; min-width: 0; }
 .radio-label { min-height: 44px; }
 .form .btn[disabled] { opacity: 0.6; cursor: progress; }
 
+/* ===== READING AIDS ===== */
+/* Enlargeable images: the image sits inside a plain button with a small magnifier badge */
+.zoom {
+  display: block;
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+}
+.zoom::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(10,14,28,0.72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6'/%3E%3Cpath d='M15 15l5 5M10.5 8v5M8 10.5h5'/%3E%3C/svg%3E") center / 20px no-repeat;
+  transition: background-color 0.2s;
+  pointer-events: none;
+}
+.zoom:hover::after { background-color: var(--color-accent); }
+
+html.lightbox-open { overflow: hidden; }
+.lightbox {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.lightbox::backdrop { background: rgba(10,14,28,0.94); }
+.lightbox__img { width: auto; max-width: min(1200px, 100%); margin: 0 auto; padding: 64px 12px 24px; cursor: zoom-in; }
+.lightbox.is-zoomed .lightbox__img { max-width: none; cursor: zoom-out; }
+.lightbox__close {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.14);
+  color: #ffffff;
+  font-size: 28px;
+  line-height: 44px;
+  cursor: pointer;
+  z-index: 1;
+}
+.lightbox__close:hover { background: rgba(255,255,255,0.26); }
+
+/* Back to top */
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--color-dark);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s, color 0.2s;
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { color: var(--color-accent); }
+html.nav-open .to-top { visibility: hidden; }
+
+/* Hub cards: the card's single link stretches over the whole card */
+.archive-item--linked { position: relative; }
+.archive-item--linked .archive-item__link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+.archive-item--linked:hover .archive-item__title { color: var(--color-accent); }
+.archive-item--linked .archive-item__link:focus-visible { outline: none; }
+.archive-item--linked:has(.archive-item__link:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+@media print {
+  .zoom::after, .to-top { display: none; }
+}
+
 /* ===== THANK-YOU PAGE: the whole confirmation fits the first screen ===== */
 .thanks {
   min-height: calc(100vh - 72px);

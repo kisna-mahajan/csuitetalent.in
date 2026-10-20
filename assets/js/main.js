@@ -6,6 +6,8 @@ if (nav) {
   }, { passive: true });
 }
 
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 // Breakpoint must match the 960px nav media queries in style.css
 const desktopNav = window.matchMedia('(min-width: 961px)');
 const hamburger = document.querySelector('.nav__hamburger');
@@ -126,8 +128,76 @@ window.addEventListener('pageshow', () => {
   document.querySelectorAll('form.form [type="submit"][disabled]').forEach(b => { b.disabled = false; b.removeAttribute('aria-busy'); });
 });
 
+// Press scans and article images: tap/click to view full size (small on phones, often unreadable)
+(() => {
+  const images = [...document.querySelectorAll('main img')].filter(img => !img.closest('a, button, .profile-card__avatar'));
+  if (!images.length || typeof HTMLDialogElement !== 'function') return;
+
+  const dialog = document.createElement('dialog');
+  dialog.className = 'lightbox';
+  dialog.innerHTML = '<button type="button" class="lightbox__close" aria-label="Close">&times;</button><img class="lightbox__img" alt="">';
+  document.body.appendChild(dialog);
+  const big = dialog.querySelector('.lightbox__img');
+  let opener = null;
+
+  images.forEach(img => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'zoom';
+    button.setAttribute('aria-label', 'Enlarge image: ' + (img.alt || ''));
+    img.parentNode.insertBefore(button, img);
+    button.appendChild(img);
+    button.addEventListener('click', () => {
+      opener = button;
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      dialog.classList.remove('is-zoomed');
+      dialog.showModal();
+      document.documentElement.classList.add('lightbox-open');
+      dialog.scrollTop = 0;
+    });
+  });
+
+  // Tap the enlarged image to toggle between fit-to-screen and full resolution (pan by scrolling)
+  big.addEventListener('click', () => dialog.classList.toggle('is-zoomed'));
+  dialog.querySelector('.lightbox__close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });
+  dialog.addEventListener('close', () => {
+    document.documentElement.classList.remove('lightbox-open');
+    if (opener) opener.focus();
+  });
+})();
+
+// Back-to-top control on long pages, shown once the visitor is two screens down
+(() => {
+  const main = document.getElementById('main');
+  if (!main || document.documentElement.scrollHeight < window.innerHeight * 4) return;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'to-top';
+  button.setAttribute('aria-label', 'Back to top');
+  button.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  document.body.appendChild(button);
+  const update = () => button.classList.toggle('is-visible', window.scrollY > window.innerHeight * 2);
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    main.focus({ preventScroll: true });
+  });
+})();
+
+// Hub cards (JOBNET, media): the whole card opens the article; identical "Read" links name their article
+document.querySelectorAll('.archive-item').forEach((item, i) => {
+  const link = item.querySelector('.archive-item__link');
+  const title = item.querySelector('.archive-item__title');
+  if (!link || !title) return;
+  title.id = title.id || `archive-title-${i + 1}`;
+  link.setAttribute('aria-describedby', title.id);
+  item.classList.add('archive-item--linked');
+});
+
 // Gentle reveal on scroll, skipped when the visitor prefers reduced motion
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if ('IntersectionObserver' in window && !reduceMotion.matches) {
   const observer = new IntersectionObserver(
     entries => entries.forEach(e => {
