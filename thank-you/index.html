@@ -18,10 +18,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180x180.png" />
 
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261020-2" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261021" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" /></noscript>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -29,7 +30,7 @@
   <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a class="nav__logo" href="/"><span class="nav__logo-line">CSuite <span>Talent</span></span><small>Management Consulting</small></a>
+      <a class="nav__logo" href="/"><picture><source srcset="../assets/images/main-logo.webp" type="image/webp" /><img src="../assets/images/main-logo.png" alt="CSuite Talent Management Consulting" width="666" height="169" /></picture></a>
       <button class="nav__hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
       <ul class="nav__links" id="nav-links">
         <li><a href="/">Home</a></li>
@@ -88,7 +89,7 @@
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
-        <a class="nav__logo" href="/"><span class="nav__logo-line">CSuite <span>Talent</span></span><small>Management Consulting</small></a>
+        <a class="nav__logo" href="/"><picture><source srcset="../assets/images/main-logo.webp" type="image/webp" /><img src="../assets/images/main-logo.png" alt="CSuite Talent Management Consulting" width="666" height="169" /></picture></a>
         <p>Specialised executive search for C-suite and senior leadership across India and the Middle East.</p>
       </div>
       <div class="footer__col">
@@ -138,7 +139,7 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=20261020-2"></script>
+  <script src="../assets/js/main.js?v=20261021"></script>
   <script>
     // Partner-programme form arrives with ?form=partner and gets its own confirmation line
     if (new URLSearchParams(window.location.search).get('form') === 'partner') {

@@ -113,26 +113,19 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 }
 
 .nav__logo {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  color: var(--color-dark);
-  letter-spacing: -0.01em;
-  font-weight: 700;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.15;
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
 }
 
-.nav__logo-line > span { color: var(--color-accent); }
+.nav__logo img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
 
 .nav__logo small {
-  font-family: var(--font-body);
-  font-size: 0.58rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-muted);
+  display: none;
 }
 
 .nav__links {
@@ -788,7 +781,7 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 /* ===== FOOTER ===== */
 .footer {
   background: var(--color-dark);
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.75);
   padding: 64px 40px 40px;
 }
 
@@ -804,18 +797,18 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 }
 
 .footer__brand .nav__logo {
-  font-size: 1.2rem;
   margin-bottom: 16px;
-  display: flex;
-  color: #ffffff;
+  background: #ffffff;
+  padding: 6px 10px;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
 }
-.footer__brand .nav__logo .nav__logo-line > span { color: rgba(255,255,255,0.85); }
-.footer__brand .nav__logo small { color: rgba(255,255,255,0.65); }
+.footer__brand .nav__logo img { filter: none; }
 
 .footer__brand p { font-size: 0.85rem; max-width: 260px; line-height: 1.7; }
 
-.footer__col h2,
-.footer__col h4 {
+.footer__col-head {
   color: #ffffff;
   font-size: 0.75rem;
   letter-spacing: 0.14em;
@@ -826,7 +819,7 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 
 .footer__col ul { list-style: none; }
 .footer__col li { margin-bottom: 12px; }
-.footer__col a { font-size: 0.875rem; transition: color 0.2s; }
+.footer__col a { font-size: 0.875rem; color: rgba(255,255,255,0.75); transition: color 0.2s; }
 .footer__col a:hover,
 .footer__bottom a:hover { color: #ffffff; }
 .footer__bottom a { transition: color 0.2s; }
@@ -1540,8 +1533,7 @@ html.nav-open .to-top { visibility: hidden; }
   /* Footer: two columns and 40px+ tap targets instead of a 3-screen single column */
   .footer { padding: 48px 20px 32px; }
   .footer__inner { grid-template-columns: 1fr 1fr; gap: 32px 24px; padding-bottom: 32px; margin-bottom: 24px; }
-  .footer__col h2,
-  .footer__col h4 { margin-bottom: 8px; }
+  .footer__col-head { margin-bottom: 8px; }
   .footer__col li { margin-bottom: 0; }
   .footer__col a { display: inline-block; padding: 9px 0; }
   .cta-banner { padding: 72px 20px; }
