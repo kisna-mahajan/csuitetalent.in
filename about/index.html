@@ -103,6 +103,10 @@
       border-radius: 4px;
       text-align: center;
     }
+    /* Desktop: the profile stays in view beside the long biography (below the sticky header) */
+    @media (min-width: 769px) {
+      .profile-card { position: sticky; top: 96px; }
+    }
     .profile-card__avatar {
       width: 120px;
       height: 120px;
