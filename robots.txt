@@ -1,4 +1,4 @@
-# CSuite Talent — robots.txt
+# CSuite Talent - robots.txt
 # csuitetalent.in
 
 # Allow all standard crawlers
