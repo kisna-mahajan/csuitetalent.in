@@ -92,3 +92,4 @@ Clean typography, generous whitespace, fast load times.
 - Watermark numbers (`.step__number`, `.archive-item__num`, `.partner-step__number`) are intentionally faint decoration.
 - formsubmit.co requires absolute `_next` URLs.
 - The `:where(.tpl-*)` and `sector-*` blocks must stay at the END of style.css: they rely on coming after every base rule, as the inline blocks did.
+- **Cache-busting:** every page loads `style.css?v=YYYYMMDD` and `main.js?v=YYYYMMDD`. Whenever style.css or main.js changes, bump the version on ALL pages in the same commit (one regex over `assets/(css/style\.css|js/main\.js)(\?v=[^"]*)?`). Otherwise visitors with the old file cached get new HTML with old CSS/JS (broken header, visible skip link) for up to the cache lifetime.
