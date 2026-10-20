@@ -6,65 +6,114 @@ if (nav) {
   }, { passive: true });
 }
 
-// Mobile nav toggle
+// Breakpoint must match the 960px nav media queries in style.css
+const desktopNav = window.matchMedia('(min-width: 961px)');
 const hamburger = document.querySelector('.nav__hamburger');
 const navLinks  = document.querySelector('.nav__links');
+const dropdowns = [...document.querySelectorAll('.nav__dropdown')];
 
-if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('is-open');
-    const expanded = navLinks.classList.contains('is-open');
-    hamburger.setAttribute('aria-expanded', expanded);
-  });
-
-  // Close nav when a non-dropdown link is clicked
-  navLinks.querySelectorAll('a:not(.nav__dropdown-toggle)').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('is-open'));
-  });
+function setDropdown(dropdown, open) {
+  dropdown.classList.toggle('is-open', open);
+  if (!open) delete dropdown.dataset.hoverOpened;
+  const toggle = dropdown.querySelector('.nav__dropdown-toggle');
+  if (toggle) toggle.setAttribute('aria-expanded', String(open));
 }
 
-// Dropdown toggle — never navigate, always open/close
-document.querySelectorAll('.nav__dropdown-toggle').forEach(toggle => {
-  toggle.addEventListener('click', e => {
-    e.preventDefault();
-    e.stopPropagation();
-    const parent = toggle.closest('.nav__dropdown');
-    const wasOpen = parent.classList.contains('is-open');
-    document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
-    if (!wasOpen) parent.classList.add('is-open');
-    toggle.setAttribute('aria-expanded', String(!wasOpen));
+function closeDropdowns(except) {
+  dropdowns.forEach(d => { if (d !== except) setDropdown(d, false); });
+}
+
+// Mobile menu
+function setMenu(open) {
+  if (!hamburger || !navLinks) return;
+  navLinks.classList.toggle('is-open', open);
+  hamburger.setAttribute('aria-expanded', String(open));
+  document.documentElement.classList.toggle('nav-open', open);
+  if (!open) closeDropdowns();
+}
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => setMenu(!navLinks.classList.contains('is-open')));
+
+  // Close the menu when a link is chosen
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenu(false));
+  });
+
+  // Growing past the breakpoint (rotate, resize) resets the phone menu
+  desktopNav.addEventListener('change', () => setMenu(false));
+}
+
+// Dropdown toggles open/close their menu; they never navigate
+dropdowns.forEach(dropdown => {
+  const toggle = dropdown.querySelector('.nav__dropdown-toggle');
+  if (!toggle) return;
+  let closeTimer;
+
+  toggle.addEventListener('click', () => {
+    // A mouse user who hovered the menu open and then clicks the label keeps it open
+    if (dropdown.dataset.hoverOpened) { delete dropdown.dataset.hoverOpened; return; }
+    const open = !dropdown.classList.contains('is-open');
+    closeDropdowns(dropdown);
+    setDropdown(dropdown, open);
+  });
+
+  // Desktop hover: mouse only, so a tap on a touch tablet is handled by click alone
+  dropdown.addEventListener('pointerenter', e => {
+    if (e.pointerType !== 'mouse' || !desktopNav.matches) return;
+    clearTimeout(closeTimer);
+    closeDropdowns(dropdown);
+    if (!dropdown.classList.contains('is-open')) {
+      setDropdown(dropdown, true);
+      dropdown.dataset.hoverOpened = 'true';
+    }
+  });
+  dropdown.addEventListener('pointerleave', e => {
+    if (e.pointerType !== 'mouse' || !desktopNav.matches) return;
+    closeTimer = setTimeout(() => setDropdown(dropdown, false), 300);
+  });
+
+  // Keyboard: closing when focus moves out of the menu
+  dropdown.addEventListener('focusout', e => {
+    if (desktopNav.matches && !dropdown.contains(e.relatedTarget)) setDropdown(dropdown, false);
   });
 });
 
-// Desktop hover — open on enter, close 2 seconds after mouse leaves
-const _dropdownTimers = new WeakMap();
-document.querySelectorAll('.nav__dropdown').forEach(dropdown => {
-  dropdown.addEventListener('mouseenter', () => {
-    if (window.innerWidth > 768) {
-      clearTimeout(_dropdownTimers.get(dropdown));
-      dropdown.classList.add('is-open');
-      const toggle = dropdown.querySelector('.nav__dropdown-toggle');
-      if (toggle) toggle.setAttribute('aria-expanded', 'true');
-    }
-  });
-  dropdown.addEventListener('mouseleave', () => {
-    if (window.innerWidth > 768) {
-      const t = setTimeout(() => {
-        dropdown.classList.remove('is-open');
-        const toggle = dropdown.querySelector('.nav__dropdown-toggle');
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      }, 2000);
-      _dropdownTimers.set(dropdown, t);
-    }
-  });
-});
-
-// Close dropdowns when clicking outside
+// Click/tap outside the nav closes any open menu
 document.addEventListener('click', e => {
-  if (!e.target.closest('.nav__dropdown')) {
-    document.querySelectorAll('.nav__dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+  if (e.target.closest('.nav')) return;
+  closeDropdowns();
+  setMenu(false);
+});
+
+// Escape closes the innermost open menu and returns focus to its control
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  const open = dropdowns.find(d => d.classList.contains('is-open'));
+  if (open) {
+    setDropdown(open, false);
+    open.querySelector('.nav__dropdown-toggle').focus();
+  } else if (navLinks && navLinks.classList.contains('is-open')) {
+    setMenu(false);
+    hamburger.focus();
   }
 });
+
+// Show where the visitor is: current page link, and the section its dropdown belongs to
+(() => {
+  const path = window.location.pathname.replace(/index\.html$/, '');
+  document.querySelectorAll('.nav__links a[href]').forEach(a => {
+    if (new URL(a.href, window.location.href).pathname === path) a.setAttribute('aria-current', 'page');
+  });
+  const sections = {
+    'nav-industry': /^\/(gcc|defence|healthcare|electronics|steel|cement)\//,
+    'nav-publications': /^\/(publications|leadership|media)\//,
+  };
+  Object.entries(sections).forEach(([id, re]) => {
+    const toggle = document.querySelector(`.nav__dropdown-toggle[aria-controls="${id}"]`);
+    if (toggle && re.test(path)) toggle.classList.add('is-current');
+  });
+})();
 
 // Smooth reveal on scroll
 const observer = new IntersectionObserver(

@@ -90,34 +90,32 @@
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
       <a class="nav__logo" href="/"><span class="nav__logo-line">CSuite <span>Talent</span></span><small>Management Consulting</small></a>
-      <ul class="nav__links">
+      <button class="nav__hamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+      <ul class="nav__links" id="nav-links">
         <li><a href="/">Home</a></li>
         <li class="nav__dropdown">
-          <a href="/#practices" class="nav__dropdown-toggle" aria-haspopup="true" aria-expanded="false">Industry Expertise</a>
-          <div class="nav__dropdown-menu" role="menu">
-            <a href="/gcc/" role="menuitem">GCC &amp; Shared Services</a>
-            <a href="/defence/" role="menuitem">Defence &amp; Aerospace</a>
-            <a href="/healthcare/" role="menuitem">Healthcare &amp; Hospitals</a>
-            <a href="/electronics/" role="menuitem">Electronics &amp; Semiconductors</a>
-            <a href="/steel/" role="menuitem">Steel &amp; Metals</a>
-            <a href="/cement/" role="menuitem">Cement &amp; Building Materials</a>
+          <button type="button" class="nav__dropdown-toggle" aria-expanded="false" aria-controls="nav-industry">Industry Expertise</button>
+          <div class="nav__dropdown-menu" id="nav-industry">
+            <a href="/gcc/">GCC &amp; Shared Services</a>
+            <a href="/defence/">Defence &amp; Aerospace</a>
+            <a href="/healthcare/">Healthcare &amp; Hospitals</a>
+            <a href="/electronics/">Electronics &amp; Semiconductors</a>
+            <a href="/steel/">Steel &amp; Metals</a>
+            <a href="/cement/">Cement &amp; Building Materials</a>
           </div>
         </li>
         <li><a href="/about/">About</a></li>
         <li class="nav__dropdown">
-          <a href="/publications/jobnet-archive/" class="nav__dropdown-toggle" aria-haspopup="true" aria-expanded="false">Publications &amp; Media</a>
-          <div class="nav__dropdown-menu" role="menu">
-            <a href="/publications/jobnet-archive/" role="menuitem">JOBNET Archive</a>
-            <a href="/leadership/media-recognition/" role="menuitem">Media Recognition</a>
-            <a href="/leadership/client-recognition/" role="menuitem">Client Recognition</a>
-            <a href="/leadership/research-citations/" role="menuitem">Research Citations</a>
+          <button type="button" class="nav__dropdown-toggle" aria-expanded="false" aria-controls="nav-publications">Publications &amp; Media</button>
+          <div class="nav__dropdown-menu" id="nav-publications">
+            <a href="/publications/jobnet-archive/">JOBNET Archive</a>
+            <a href="/leadership/media-recognition/">Media Recognition</a>
+            <a href="/leadership/client-recognition/">Client Recognition</a>
+            <a href="/leadership/research-citations/">Research Citations</a>
           </div>
         </li>
         <li><a href="/contact/" class="nav__cta">Engage Us</a></li>
       </ul>
-      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
 
