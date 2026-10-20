@@ -207,6 +207,7 @@
 </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- NAV -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -241,15 +242,17 @@
     </div>
   </nav>
 
+  <main id="main" tabindex="-1">
+
   <!-- HERO -->
   <section class="article-hero">
     <div class="container">
-      <div class="article-breadcrumb">
-        <a href="../../../">Home</a><span>/</span>
-        <a href="../../../about/">About</a><span>/</span>
-        <a href="../../jobnet-archive/">JOBNET Archive</a><span>/</span>
+      <nav class="article-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../">Home</a><span aria-hidden="true">/</span>
+        <a href="../../../about/">About</a><span aria-hidden="true">/</span>
+        <a href="../../jobnet-archive/">JOBNET Archive</a><span aria-hidden="true">/</span>
         Yeh Resume Maange More – Part I
-      </div>
+      </nav>
       <p class="section-label" style="color: rgba(255,255,255,0.85);">
         <span style="background: rgba(255,255,255,0.6); height:1px; flex:1; display:inline-block; vertical-align:middle; margin-right:12px;"></span>
         JOBNET Career Intelligence
@@ -589,6 +592,8 @@
     </div>
   </section>
 
+  </main>
+
     <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
@@ -597,7 +602,7 @@
         <p>Specialised executive search for C-suite and senior leadership across India and the Middle East.</p>
       </div>
       <div class="footer__col">
-        <h4>Services</h4>
+        <h2>Services</h2>
         <ul>
           <li><a href="/#services">Board &amp; C-Suite</a></li>
           <li><a href="/#services">Confidential Search</a></li>
@@ -606,7 +611,7 @@
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Company</h4>
+        <h2>Company</h2>
         <ul>
           <li><a href="/about/">About</a></li>
           <li><a href="/philosophy/">Our Philosophy</a></li>
@@ -616,7 +621,7 @@
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Publications</h4>
+        <h2>Publications</h2>
         <ul>
           <li><a href="/publications/jobnet-archive/">JOBNET Archive</a></li>
           <li><a href="/leadership/client-recognition/">Client Recognition</a></li>
@@ -625,7 +630,7 @@
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Industry Expertise</h4>
+        <h2>Industry Expertise</h2>
         <ul>
           <li><a href="/gcc/">GCC &amp; Shared Services</a></li>
           <li><a href="/defence/">Defence &amp; Aerospace</a></li>

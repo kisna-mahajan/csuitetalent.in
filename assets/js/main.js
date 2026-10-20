@@ -115,25 +115,21 @@ document.addEventListener('keydown', e => {
   });
 })();
 
-// Smooth reveal on scroll
-const observer = new IntersectionObserver(
-  entries => entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('is-visible');
-      observer.unobserve(e.target);
-    }
-  }),
-  { threshold: 0.12 }
-);
+// Gentle reveal on scroll, skipped when the visitor prefers reduced motion
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if ('IntersectionObserver' in window && !reduceMotion.matches) {
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        observer.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.12 }
+  );
 
-document.querySelectorAll('.service-card, .step, .stat, .practice-card, .why-brief__point').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(16px)';
-  el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
-  observer.observe(el);
-});
-
-// Add visible class styles via JS (avoids FOUC without extra CSS)
-const style = document.createElement('style');
-style.textContent = '.is-visible { opacity: 1 !important; transform: none !important; }';
-document.head.appendChild(style);
+  document.querySelectorAll('.service-card, .step, .stat, .practice-card, .why-brief__point').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+}
