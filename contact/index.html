@@ -85,7 +85,7 @@
       margin-bottom: 32px;
     }
 
-    .contact-info a { color: var(--color-accent); }
+    .contact-info a { color: var(--color-accent); display: inline-block; padding: 10px 0; margin: -10px 0; }
 
     .form { display: flex; flex-direction: column; gap: 20px; }
 
@@ -108,7 +108,7 @@
       border: 1.5px solid var(--color-border);
       border-radius: 2px;
       font-family: var(--font-body);
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--color-text);
       background: var(--color-bg);
       transition: border-color 0.2s;
@@ -203,28 +203,28 @@
         <form class="form" action="https://formsubmit.co/leadership@csuitetalent.in" method="POST">
           <input type="hidden" name="_subject" value="New Enquiry - CSuite Talent" />
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://csuitetalent.in/contact" />
+          <input type="hidden" name="_next" value="https://csuitetalent.in/thank-you/" />
           <input type="text" name="_honey" style="display:none" />
 
           <div class="form-row">
             <div class="form-group">
               <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required />
+              <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required />
             </div>
             <div class="form-group">
               <label for="organisation">Organisation</label>
-              <input type="text" id="organisation" name="organisation" placeholder="Company name" required />
+              <input type="text" id="organisation" name="organisation" placeholder="Company name" autocomplete="organization" required />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="email">Work Email</label>
-              <input type="email" id="email" name="email" placeholder="you@company.com" required />
+              <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required />
             </div>
             <div class="form-group">
               <label for="phone">Phone (Optional)</label>
-              <input type="tel" id="phone" name="phone" placeholder="+91 98000 00000" />
+              <input type="tel" id="phone" name="phone" placeholder="+91 98000 00000" autocomplete="tel" />
             </div>
           </div>
 

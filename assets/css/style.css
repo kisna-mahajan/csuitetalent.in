@@ -1001,7 +1001,10 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 .form { display: flex; flex-direction: column; gap: 20px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .form-group { display: flex; flex-direction: column; gap: 6px; }
-.form-group label {
+fieldset.form-group { border: 0; padding: 0; margin: 0; min-width: 0; }
+.form-group legend { padding: 0; margin-bottom: 6px; }
+.form-group label,
+.form-group legend {
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -1015,7 +1018,7 @@ html .reveal.is-visible { opacity: 1; transform: none; }
   border: 1.5px solid var(--color-border);
   border-radius: 2px;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--color-text);
   background: var(--color-bg);
   transition: border-color 0.2s;
@@ -1031,7 +1034,7 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 .form-group textarea { width: 100%; min-width: 0; }
 .form-note { font-size: 0.8rem; color: var(--color-muted); }
 .form-radios { display: flex; gap: 24px; margin-top: 4px; }
-.radio-label {
+.form-group .radio-label {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1042,7 +1045,42 @@ html .reveal.is-visible { opacity: 1; transform: none; }
   font-weight: 400;
   letter-spacing: 0;
 }
-.radio-label input { accent-color: var(--color-accent); }
+.radio-label input { accent-color: var(--color-accent); width: 18px; height: 18px; }
+.radio-label { min-height: 44px; }
+.form .btn[disabled] { opacity: 0.6; cursor: progress; }
+
+/* ===== THANK-YOU PAGE: the whole confirmation fits the first screen ===== */
+.thanks {
+  min-height: calc(100vh - 72px);
+  min-height: calc(100svh - 72px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: var(--color-bg-light);
+  text-align: center;
+}
+.thanks__inner { max-width: 560px; }
+.thanks__icon { display: block; width: 56px; height: 56px; margin: 0 auto 24px; color: var(--color-accent); }
+.thanks__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-dark);
+  margin-bottom: 16px;
+}
+.thanks__body { font-size: 1.0625rem; line-height: 1.75; color: var(--color-text); }
+.thanks__note { margin-top: 12px; font-size: 0.95rem; line-height: 1.7; color: var(--color-muted); }
+.thanks__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+.btn--ghost { background: transparent; color: var(--color-dark); border: 1.5px solid var(--color-border); }
+.btn--ghost:hover { border-color: var(--color-dark); }
+
+@media (max-width: 480px) {
+  .thanks { align-items: flex-start; padding: 48px 20px; }
+  .thanks__actions .btn { width: 100%; max-width: 340px; justify-content: center; }
+}
 
 /* ===== GENERIC SECTION (practice pages + recognition) ===== */
 .section {

@@ -115,6 +115,17 @@ document.addEventListener('keydown', e => {
   });
 })();
 
+// Forms: one submission per click (the button re-enables if the visitor comes back with Back)
+document.querySelectorAll('form.form').forEach(form => {
+  form.addEventListener('submit', () => {
+    const button = form.querySelector('[type="submit"]');
+    if (button) { button.disabled = true; button.setAttribute('aria-busy', 'true'); }
+  });
+});
+window.addEventListener('pageshow', () => {
+  document.querySelectorAll('form.form [type="submit"][disabled]').forEach(b => { b.disabled = false; b.removeAttribute('aria-busy'); });
+});
+
 // Gentle reveal on scroll, skipped when the visitor prefers reduced motion
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 if ('IntersectionObserver' in window && !reduceMotion.matches) {

@@ -349,20 +349,6 @@
     }
 
     /* ======================================================
-       FORM SUCCESS BANNER
-    ====================================================== */
-    .partner-success-banner {
-      background: #1a6b3c;
-      color: #ffffff;
-      padding: 18px 24px;
-      text-align: center;
-      font-size: 0.95rem;
-      font-weight: 500;
-      line-height: 1.6;
-    }
-    .partner-success-banner p { color: #fff; max-width: none; }
-
-    /* ======================================================
        RESPONSIVE
     ====================================================== */
     @media (max-width: 900px) {
@@ -594,33 +580,33 @@
           <form class="form" action="https://formsubmit.co/leadership@csuitetalent.in" method="POST">
             <input type="hidden" name="_subject" value="Corporate Partner Application - CSuite Talent" />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://csuitetalent.in/corporate-partners?sent=true" />
+            <input type="hidden" name="_next" value="https://csuitetalent.in/thank-you/?form=partner" />
             <input type="text" name="_honey" style="display:none" />
 
             <div class="form-row">
               <div class="form-group">
                 <label for="cp-name">Full Name</label>
-                <input type="text" id="cp-name" name="name" placeholder="Your full name" required />
+                <input type="text" id="cp-name" name="name" placeholder="Your full name" autocomplete="name" required />
               </div>
               <div class="form-group">
                 <label for="cp-designation">Designation / Title</label>
-                <input type="text" id="cp-designation" name="designation" placeholder="e.g. Independent Consultant" required />
+                <input type="text" id="cp-designation" name="designation" placeholder="e.g. Independent Consultant" autocomplete="organization-title" required />
               </div>
             </div>
 
             <div class="form-group">
               <label for="cp-company">Company / Consultancy Name</label>
-              <input type="text" id="cp-company" name="company" placeholder="Your firm or practice name" required />
+              <input type="text" id="cp-company" name="company" placeholder="Your firm or practice name" autocomplete="organization" required />
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="cp-email">Work Email</label>
-                <input type="email" id="cp-email" name="email" placeholder="you@company.com" required />
+                <input type="email" id="cp-email" name="email" placeholder="you@company.com" autocomplete="email" required />
               </div>
               <div class="form-group">
                 <label for="cp-phone">Phone (Optional)</label>
-                <input type="tel" id="cp-phone" name="phone" placeholder="+91 98000 00000" />
+                <input type="tel" id="cp-phone" name="phone" placeholder="+91 98000 00000" autocomplete="tel" />
               </div>
             </div>
 
@@ -639,13 +625,13 @@
               </select>
             </div>
 
-            <div class="form-group">
-              <label>Preferred Contact Method</label>
+            <fieldset class="form-group">
+              <legend>Preferred Contact Method</legend>
               <div class="form-radios">
                 <label class="radio-label"><input type="radio" name="contact_method" value="Email" checked /> Email</label>
                 <label class="radio-label"><input type="radio" name="contact_method" value="Phone Call" /> Phone Call</label>
               </div>
-            </div>
+            </fieldset>
 
             <div class="form-group">
               <label for="cp-message">Message / Comments</label>
@@ -721,17 +707,6 @@
 
   <script src="../assets/js/main.js"></script>
 
-  <!-- Form submission confirmation banner -->
-  <script>
-    if (window.location.search.indexOf('sent=true') !== -1) {
-      var banner = document.createElement('div');
-      banner.className = 'partner-success-banner';
-      banner.innerHTML = '<p>Your partnership request has been submitted - thank you. We will be in touch within one business day.</p>';
-      var hero = document.querySelector('.hero--practice');
-      hero.parentNode.insertBefore(banner, hero);
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-  </script>
 
   <script type="application/ld+json">
   {
