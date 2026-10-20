@@ -1042,6 +1042,28 @@ fieldset.form-group { border: 0; padding: 0; margin: 0; min-width: 0; }
 .radio-label input { accent-color: var(--color-accent); width: 18px; height: 18px; }
 .radio-label { min-height: 44px; }
 .form .btn[disabled] { opacity: 0.6; cursor: progress; }
+.form-group input[type="file"] { padding: 10px 12px; cursor: pointer; }
+.form-group input[type="file"]::file-selector-button {
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-bg-light);
+  border: 1.5px solid var(--color-border);
+  border-radius: 2px;
+  padding: 8px 14px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.form-fallback {
+  padding: 14px 16px;
+  border-left: 3px solid var(--color-accent);
+  background: #f0f3ff;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.form-fallback a { color: var(--color-accent); font-weight: 600; }
 
 /* ===== READING AIDS ===== */
 /* Enlargeable images: the image sits inside a plain button with a small magnifier badge */

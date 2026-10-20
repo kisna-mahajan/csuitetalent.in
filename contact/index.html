@@ -48,7 +48,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180x180.png" />
 
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261021" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261021-2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
@@ -158,7 +158,7 @@
           <p>All enquiries are treated with complete discretion. We do not share client or candidate information without explicit consent.</p>
         </div>
 
-        <form class="form" action="https://formsubmit.co/leadership@csuitetalent.in" method="POST">
+        <form class="form" action="https://formsubmit.co/leadership@csuitetalent.in" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="New Enquiry - CSuite Talent" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_next" value="https://csuitetalent.in/thank-you/" />
@@ -214,6 +214,12 @@
           <div class="form-group">
             <label for="message">Brief</label>
             <textarea id="message" name="message" placeholder="Describe the mandate or what you're looking to discuss..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="attachment">Attachment (Optional)</label>
+            <input type="file" id="attachment" name="attachment" data-max-mb="10" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.jpeg,.png" aria-describedby="attachment-help" />
+            <p class="form-note" id="attachment-help">PDF, Word, PowerPoint, Excel or image, up to 10 MB.</p>
           </div>
 
           <div>
@@ -283,7 +289,7 @@
     </div>
   </footer>
 
-  <script src="../assets/js/main.js?v=20261021"></script>
+  <script src="../assets/js/main.js?v=20261021-2"></script>
   <script>
     (function () {
       var param = new URLSearchParams(window.location.search).get('vertical');

@@ -118,10 +118,36 @@ document.addEventListener('keydown', e => {
 })();
 
 // Forms: one submission per click (the button re-enables if the visitor comes back with Back)
+const FORM_TIMEOUT_MS = 12000;
 document.querySelectorAll('form.form').forEach(form => {
+  // Attachments: refuse files over the form service's limit before sending (FormSubmit caps a submission at 10 MB)
+  form.querySelectorAll('input[type="file"][data-max-mb]').forEach(input => {
+    input.addEventListener('change', () => {
+      const maxBytes = Number(input.dataset.maxMb) * 1024 * 1024;
+      const total = [...input.files].reduce((sum, f) => sum + f.size, 0);
+      input.setCustomValidity(total > maxBytes
+        ? `This file is larger than ${input.dataset.maxMb} MB. Please email it to leadership@csuitetalent.in instead.`
+        : '');
+      if (total > maxBytes) input.reportValidity();
+    });
+  });
+
   form.addEventListener('submit', () => {
     const button = form.querySelector('[type="submit"]');
     if (button) { button.disabled = true; button.setAttribute('aria-busy', 'true'); }
+    // If the form service never answers, stop waiting: keep the visitor here and offer direct contact
+    clearTimeout(form._watchdog);
+    form._watchdog = setTimeout(() => {
+      window.stop();
+      if (button) { button.disabled = false; button.removeAttribute('aria-busy'); }
+      if (!form.querySelector('.form-fallback')) {
+        const note = document.createElement('p');
+        note.className = 'form-fallback';
+        note.setAttribute('role', 'alert');
+        note.innerHTML = 'Our form service is not responding. Please email <a href="mailto:leadership@csuitetalent.in">leadership@csuitetalent.in</a> or call <a href="tel:+918058534511">+91 80585 34511</a>.';
+        (button ? button.parentElement : form.lastElementChild).insertAdjacentElement('afterend', note);
+      }
+    }, FORM_TIMEOUT_MS);
   });
 });
 window.addEventListener('pageshow', () => {
