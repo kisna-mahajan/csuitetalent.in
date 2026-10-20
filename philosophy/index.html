@@ -156,6 +156,13 @@
     @media (max-width: 768px) {
       .philosophy-content { padding-left: 20px; padding-right: 20px; }
     }
+    @media (max-width: 640px) {
+      .matrix-table, .matrix-table thead, .matrix-table tbody { display: block; }
+      .matrix-table tr { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .matrix-table thead th:first-child { display: none; }
+      .matrix-table td:first-child { grid-column: 1 / -1; background: var(--color-bg); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+      .matrix-table td:first-child strong { margin: 0; }
+    }
   </style>
 </head>
 <body>

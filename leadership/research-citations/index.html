@@ -103,6 +103,8 @@
     .cons-item { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 6px; padding: 12px 16px; font-size: 0.88rem; color: #333; display: flex; gap: 10px; align-items: center; }
     .cons-item::before { content: "·"; color: var(--color-accent); font-weight: 900; font-size: 1.1rem; flex-shrink: 0; }
     @media (max-width: 540px) { .considerations-grid { grid-template-columns: 1fr; } }
+    .concern-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    @media (max-width: 540px) { .concern-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
     /* ── Why this matters ── */
     .matters-block { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 32px; margin-top: 28px; }
@@ -257,7 +259,7 @@
       <h2 style="font-family:var(--font-heading);font-size:1.7rem;margin-bottom:24px;">HR Outsourcing in the Early 2000s</h2>
       <p style="font-size:0.97rem;line-height:1.8;margin-bottom:16px;">During the early 2000s, organisations increasingly sought to focus on their core business while improving operational efficiency. Human Resource Outsourcing emerged as a strategic option for organisations wishing to streamline administrative HR activities without compromising service quality.</p>
       <p style="font-size:0.97rem;line-height:1.8;margin-bottom:20px;">The Hewitt Associates survey found that although multinational organisations were adopting HR outsourcing more rapidly, the overall Asia-Pacific market remained at different stages of maturity. The study highlighted increasing interest in outsourcing transactional HR functions while also identifying concerns regarding:</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+      <div class="concern-grid">
         <div style="background:var(--color-bg-light);border:1px solid var(--color-border);border-radius:6px;padding:14px 16px;font-size:0.88rem;font-weight:600;color:var(--color-primary);text-align:center;">Confidentiality</div>
         <div style="background:var(--color-bg-light);border:1px solid var(--color-border);border-radius:6px;padding:14px 16px;font-size:0.88rem;font-weight:600;color:var(--color-primary);text-align:center;">Vendor Capability</div>
         <div style="background:var(--color-bg-light);border:1px solid var(--color-border);border-radius:6px;padding:14px 16px;font-size:0.88rem;font-weight:600;color:var(--color-primary);text-align:center;">Organisational Readiness</div>
