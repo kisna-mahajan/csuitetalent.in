@@ -65,13 +65,14 @@ Clean typography, generous whitespace, fast load times.
 
 ## Known issues
 - Links are root-absolute (`/about/`) throughout, contrary to the "relative links" rule above. They work on GitHub Pages with the custom domain; converting would touch every page.
-- Images over the 300KB rule: `hero-bg.jpg` (~2.5MB, 5184px), `research-hero.jpg` (~3.7MB), `philosophy-hero.jpg`, `leader-bg.jpg`, `AM.jpg` (1024px shown at 120px). Needs re-export.
+- Image over the 300KB rule: `hero-bg.jpg` (~2.5MB, 5184px; home hero + og:image on 7 pages). All other referenced images were re-encoded under 300KB in Oct 2026 (scans keep full resolution for the zoom viewer). Re-encode recipe: Pillow, progressive JPEG, max 2400px wide for heroes, highest quality that fits 290KB.
 - ~10MB of unreferenced images sit untracked in assets/images (`publications *.jpeg`, `rc *.JPG`, `cr 1.jpeg`, `Philosophy hero.jpg`, `hero-bg_old.jpg`, `Main Logo.png`).
+- leadership/research-citations og:image and twitter:image point to `/assets/images/assets/images/research/hr-outsourcing-p1.jpg` (doubled path), so social previews of that page have no image.
 - steel/ and cement/ carry ~200 inline `style=""` attributes each; JOBNET articles use two different templates (4 use the `.breadcrumb`/`.article-section` template).
 - Media article pages reference assets with `../../../../` (climbs above root; works only because browsers clamp at root).
 
 ## Pending work (priority order)
-1. Re-export oversized images (above) to <300KB; consider a 1200px phone hero.
+1. Re-export `hero-bg.jpg` under 300KB once the owner's replacement is final; consider a 1200px phone hero.
 2. Move duplicated inline styles (steel/cement, article templates, form CSS) into style.css; unify the two JOBNET article templates.
 3. Owner decisions from the Oct 2026 UX review (not done because they change structure/content): move the "Why" stats up on home; put JOBNET article text before the scans; breadcrumb "Home / About / JOBNET Archive" vs nav placement; "next article" link on the FE article and a slim cross-link row at the end of the four hubs; About 2000-timeline "Read More" points to the media hub rather than the FE article; tap-to-call in the mobile header.
 
