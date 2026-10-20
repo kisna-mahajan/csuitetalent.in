@@ -11,7 +11,6 @@
   --color-border:     #e0e0e0;
   --color-dark:       #000000;
   --color-accent-on-dark: #8da9ff;
-  --measure: 62ch;
 
   --font-heading: 'Playfair Display', 'Georgia', serif;
   --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
@@ -216,6 +215,8 @@ html .reveal.is-visible { opacity: 1; transform: none; }
   flex-shrink: 0;
 }
 .nav__dropdown.is-open > .nav__dropdown-toggle::after { transform: translateY(1px) rotate(-135deg); }
+/* Never let the link-underline rule (.nav__links a::after) turn the chevron into a stray mark, even on a stale cached page */
+.nav__links .nav__dropdown-toggle::after { position: static; background: none; }
 
 .nav__dropdown-menu a {
   display: block;
@@ -1220,20 +1221,9 @@ html.nav-open .to-top { visibility: hidden; }
   color: var(--color-muted);
   line-height: 1.8;
   margin-bottom: 1.1rem;
-  max-width: var(--measure);
+  max-width: 820px;
 }
 
-/* ===== READING MEASURE: long-form paragraphs stay about 70 characters wide ===== */
-.timeline-body,
-.philosophy-content p,
-.philosophy-content li,
-.transcript-body p,
-.tip-list li,
-.article-inner > p,
-.article-section > p,
-.rc-inner > p,
-.cr-inner > p { max-width: var(--measure); }
-.section-intro p { max-width: var(--measure); margin-left: auto; margin-right: auto; }
 
 /* ===== PRACTICE PAGE HERO ===== */
 .hero--practice {
