@@ -64,6 +64,7 @@ Clean typography, generous whitespace, fast load times.
 - Scroll reveal: main.js adds `.reveal` only if IntersectionObserver exists and reduced motion is not requested; content is never hidden without JS or when printing.
 - Images inside `<main>` (except the About avatar) are wrapped by main.js in a `button.zoom` and open in a `<dialog class="lightbox">`; tapping the enlarged image toggles full resolution.
 - Forms: contact `_next` = `https://csuitetalent.in/thank-you/`, corporate partners `_next` = `.../thank-you/?form=partner` (shows partner wording). Practice-page CTAs link `/contact/?vertical=<slug>` which pre-selects the industry. Inputs are 16px (prevents iOS zoom).
+- Forms post to **formsubmit.co** (free; owner chose it over paid Formspree/Web3Forms because it includes attachments). It has outages (Cloudflare 522 on 2026-10-21), so main.js runs a 12s watchdog after submit: `window.stop()`, re-enable Send, keep the typed data, show `.form-fallback` with mailto/tel links. Contact form has an optional `attachment` file input (`enctype="multipart/form-data"`, `data-max-mb="10"`; FormSubmit caps a submission at 10 MB and emails the file). Test form changes against a local stand-in, never by submitting the live form (that emails the owner).
 
 ## Build / deploy
 - No build. Preview locally: `python -m http.server 8765 --bind 127.0.0.1` from the repo root (links are root-absolute, so it must be served from root, not opened as files). `.claude/launch.json` has this as "site".
