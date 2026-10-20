@@ -117,9 +117,21 @@ document.addEventListener('keydown', e => {
   });
 })();
 
-// Forms: one submission per click (the button re-enables if the visitor comes back with Back)
-const FORM_TIMEOUT_MS = 12000;
-document.querySelectorAll('form.form').forEach(form => {
+// Forms: sent through a hidden frame so the visitor never leaves the page while the form service works.
+// FormSubmit can be very slow from India (~20s) or fail outright (Cloudflare 522): we wait up to 60s showing
+// "Sending...", go to the thank-you page when the service redirects there, and otherwise offer email/phone.
+const FORM_TIMEOUT_MS = 60000;
+
+function showFormFallback(form, button) {
+  if (form.querySelector('.form-fallback')) return;
+  const note = document.createElement('p');
+  note.className = 'form-fallback';
+  note.setAttribute('role', 'alert');
+  note.innerHTML = 'Our form service is not responding. Please email <a href="mailto:leadership@csuitetalent.in">leadership@csuitetalent.in</a> or call <a href="tel:+918058534511">+91 80585 34511</a>.';
+  (button ? button.parentElement : form.lastElementChild).insertAdjacentElement('afterend', note);
+}
+
+document.querySelectorAll('form.form').forEach((form, index) => {
   // Attachments: refuse files over the form service's limit before sending (FormSubmit caps a submission at 10 MB)
   form.querySelectorAll('input[type="file"][data-max-mb]').forEach(input => {
     input.addEventListener('change', () => {
@@ -132,26 +144,52 @@ document.querySelectorAll('form.form').forEach(form => {
     });
   });
 
+  // The form posts normally (attachments included) but into this frame instead of replacing the page
+  const frame = document.createElement('iframe');
+  frame.name = `form-frame-${index}`;
+  frame.title = 'Form submission';
+  frame.hidden = true;
+  frame.tabIndex = -1;
+  document.body.appendChild(frame);
+  form.target = frame.name;
+
+  const button = form.querySelector('[type="submit"]');
+  const label = button ? button.innerHTML : '';
+  if (button) button.dataset.label = label;
+  let sending = false;
+  let timer;
+
+  const finish = destination => {
+    if (!sending) return;
+    sending = false;
+    clearTimeout(timer);
+    if (destination) { window.location.href = destination; return; }
+    frame.src = 'about:blank';   // abandon a request that is still hanging
+    if (button) { button.disabled = false; button.removeAttribute('aria-busy'); button.innerHTML = label; }
+    showFormFallback(form, button);
+  };
+
+  frame.addEventListener('load', () => {
+    if (!sending) return;
+    let href = null;
+    try { href = frame.contentWindow.location.href; } catch (e) { /* a page on the service's own domain: an error, not our thank-you page */ }
+    if (href === 'about:blank') return;
+    finish(href && new URL(href).pathname.startsWith('/thank-you') ? href : null);
+  });
+
   form.addEventListener('submit', () => {
-    const button = form.querySelector('[type="submit"]');
-    if (button) { button.disabled = true; button.setAttribute('aria-busy', 'true'); }
-    // If the form service never answers, stop waiting: keep the visitor here and offer direct contact
-    clearTimeout(form._watchdog);
-    form._watchdog = setTimeout(() => {
-      window.stop();
-      if (button) { button.disabled = false; button.removeAttribute('aria-busy'); }
-      if (!form.querySelector('.form-fallback')) {
-        const note = document.createElement('p');
-        note.className = 'form-fallback';
-        note.setAttribute('role', 'alert');
-        note.innerHTML = 'Our form service is not responding. Please email <a href="mailto:leadership@csuitetalent.in">leadership@csuitetalent.in</a> or call <a href="tel:+918058534511">+91 80585 34511</a>.';
-        (button ? button.parentElement : form.lastElementChild).insertAdjacentElement('afterend', note);
-      }
-    }, FORM_TIMEOUT_MS);
+    sending = true;
+    form.querySelector('.form-fallback')?.remove();
+    if (button) { button.disabled = true; button.setAttribute('aria-busy', 'true'); button.textContent = 'Sending...'; }
+    clearTimeout(timer);
+    timer = setTimeout(() => finish(null), Number(form.dataset.timeoutMs) || FORM_TIMEOUT_MS);
   });
 });
 window.addEventListener('pageshow', () => {
-  document.querySelectorAll('form.form [type="submit"][disabled]').forEach(b => { b.disabled = false; b.removeAttribute('aria-busy'); });
+  document.querySelectorAll('form.form [type="submit"][disabled]').forEach(b => {
+    b.disabled = false; b.removeAttribute('aria-busy');
+    if (b.dataset.label) b.innerHTML = b.dataset.label;
+  });
 });
 
 // Press scans and article images: tap/click to view full size (small on phones, often unreadable)
