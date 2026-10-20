@@ -620,7 +620,7 @@ html .reveal.is-visible { opacity: 1; transform: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(248, 247, 244, 0.96);
+  background: var(--color-bg);
   z-index: 0;
 }
 
@@ -672,7 +672,7 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 /* ===== PHILOSOPHY TEASER (homepage) ===== */
 .philosophy {
   padding: var(--section-padding);
-  background: var(--color-bg);
+  background: var(--color-bg-light);
 }
 
 .philosophy__inner {
@@ -698,7 +698,7 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 /* ===== PROCESS ===== */
 .process {
   padding: var(--section-padding);
-  background: var(--color-bg-light);
+  background: var(--color-bg);
 }
 
 .process__header {
@@ -730,7 +730,7 @@ html .reveal.is-visible { opacity: 1; transform: none; }
   opacity: 0.18;
   position: absolute;
   top: 16px;
-  left: 16px;
+  left: 28px;
   margin-bottom: 0;
   pointer-events: none;
 }
@@ -826,7 +826,9 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 .footer__col ul { list-style: none; }
 .footer__col li { margin-bottom: 12px; }
 .footer__col a { font-size: 0.875rem; transition: color 0.2s; }
-.footer__col a:hover { color: #ffffff; }
+.footer__col a:hover,
+.footer__bottom a:hover { color: #ffffff; }
+.footer__bottom a { transition: color 0.2s; }
 
 .footer__bottom {
   max-width: var(--max-width);
@@ -1346,16 +1348,30 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
-  .process__steps { grid-template-columns: repeat(3, 1fr); }
+  /* Process: 3 + 2 layout, no empty cell */
+  .process__steps { grid-template-columns: repeat(6, 1fr); }
+  .step { grid-column: span 2; }
+  .step:nth-child(n+4) { grid-column: span 3; }
   .step:nth-child(3) { border-right: none; }
   .step:nth-child(4) { border-top: 1px solid var(--color-border); }
   .step:nth-child(5) { border-top: 1px solid var(--color-border); border-right: none; }
-  /* practices stays 3-col at 1024px */
+
+  /* Practice & recognition cards: 2 columns (3 left a 170px text column); a lone last card spans the row */
+  .practices__grid { grid-template-columns: 1fr 1fr; gap: 24px 0; }
+  .practice-card:nth-child(2n) { border-right: none; }
+  .practice-card:nth-child(2n+1) { border-right: 1px solid var(--color-border); }
+  .practice-card:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: none; }
+
+  .why__inner { grid-template-columns: 1fr; gap: 48px; }
+
+  .footer__inner { grid-template-columns: repeat(4, 1fr); }
+  .footer__brand { grid-column: 1 / -1; }
+
   .why-brief__points { grid-template-columns: 1fr; }
   .why-brief__point { border-right: none; border-top: none; border-bottom: 1px solid var(--color-border); }
   .why-brief__point:first-child { border-top: 3px solid var(--color-accent); }
   .method-grid { grid-template-columns: repeat(5, 1fr); }
-  /* role-grid: keep 3-col at 1024px — adequate width */
+  /* role-grid: keep 3-col at 1024px - adequate width */
   .role-grid--4 { grid-template-columns: repeat(2, 1fr); }
   .role-grid--4 .role-col:nth-child(2n) { border-right: none; }
   .role-grid--4 .role-col:nth-child(n+3) { border-top: 1px solid var(--color-border); }
@@ -1368,28 +1384,37 @@ html .reveal.is-visible { opacity: 1; transform: none; }
   .form-row { grid-template-columns: 1fr; }
   .hero { padding: 64px 20px 56px; }
   .hero--practice { padding: 56px 20px 48px; }
-  .services__header { flex-direction: column; align-items: flex-start; }
+  .services__header { margin-bottom: 40px; }
   .services__grid { grid-template-columns: 1fr; }
-  .service-card { border-right: none; border-bottom: 1px solid var(--color-border); }
+  /* Cards sit on the page gutter instead of adding another 40px inset */
+  .service-card { padding: 28px 0; border-right: none; border-bottom: 1px solid var(--color-border); }
+  .service-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--color-border); }
   .service-card:last-child { border-bottom: none; }
   .service-card::before { display: none; }
+  .service-card__title { padding-left: 16px; }
+  .service-card__body { margin-bottom: 0; }
 
-  .why__inner { grid-template-columns: 1fr; gap: 56px; }
   .why__stats { grid-template-columns: 1fr 1fr; }
 
+  .process__header,
+  .practices__header,
+  .why__header { margin-bottom: 40px; }
   .process__steps { grid-template-columns: 1fr 1fr; }
-  .step { border-right: none; border-bottom: 1px solid var(--color-border); }
+  .process__steps .step { grid-column: auto; border-right: none; border-bottom: 1px solid var(--color-border); }
   .step:last-child { border-bottom: none; }
   .step:nth-child(3), .step:nth-child(4), .step:nth-child(5) { border-top: none; }
   .process__steps .step:last-child:nth-child(odd) { grid-column: 1 / -1; }
 
-  .footer__inner { grid-template-columns: 1fr; gap: 40px; }
-  .cta-banner { padding: 72px 20px; }
+  .practice-card { padding: 28px 20px; }
 
-  /* Practices grid: 2 columns on tablet */
-  .practices__grid { grid-template-columns: 1fr 1fr; gap: 24px 0; }
-  .practice-card:nth-child(2n) { border-right: none; }
-  .practice-card:nth-child(2n+1) { border-right: 1px solid var(--color-border); }
+  /* Footer: two columns and 40px+ tap targets instead of a 3-screen single column */
+  .footer { padding: 48px 20px 32px; }
+  .footer__inner { grid-template-columns: 1fr 1fr; gap: 32px 24px; padding-bottom: 32px; margin-bottom: 24px; }
+  .footer__col h2,
+  .footer__col h4 { margin-bottom: 8px; }
+  .footer__col li { margin-bottom: 0; }
+  .footer__col a { display: inline-block; padding: 9px 0; }
+  .cta-banner { padding: 72px 20px; }
 
   .vertical-hero { padding: 72px 20px 64px; }
 
@@ -1409,13 +1434,24 @@ html .reveal.is-visible { opacity: 1; transform: none; }
 }
 
 @media (max-width: 480px) {
-  .why__stats { grid-template-columns: 1fr; }
-  .hero { padding: 56px 20px 48px; }
+  /* Compact home hero so both calls to action fit on the first screen of a small phone */
+  .hero { padding: 44px 20px 48px; }
+  .hero__title { font-size: 1.75rem; }
+  .hero__subtitle { font-size: 0.95rem; line-height: 1.7; margin-bottom: 32px; }
   .hero__eyebrow { letter-spacing: 0.1em; font-size: 0.68rem; }
   .hero__eyebrow::before, .hero__eyebrow::after { display: none; }
+
+  /* Stacked buttons share one width */
+  .hero__actions .btn,
+  .hero__ctas .btn,
+  .cta-banner .btn { width: 100%; max-width: 340px; justify-content: center; }
+
+  .section-label { letter-spacing: 0.14em; }
+  .section-label::before, .section-label::after { width: 16px; }
+
   .footer__bottom { flex-direction: column; align-items: flex-start; gap: 4px; }
   .practices__grid { grid-template-columns: 1fr; gap: 0; }
-  .practice-card { border-right: none; border-bottom: 1px solid var(--color-border); }
+  .practices__grid .practice-card { border-right: none; border-bottom: 1px solid var(--color-border); }
   .practice-card:first-child { border-top: 3px solid var(--color-accent); }
   .practice-card:nth-child(n+2) { border-top: 1px solid var(--color-border); }
   .role-grid, .role-grid--4 { grid-template-columns: 1fr; }
