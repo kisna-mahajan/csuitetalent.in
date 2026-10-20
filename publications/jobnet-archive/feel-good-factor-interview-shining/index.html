@@ -23,37 +23,13 @@
   }
   </script>
   <style>
-/* ── Breadcrumb ── */
-    .breadcrumb { padding: 16px 24px; font-size: 0.78rem; color: var(--color-muted); max-width: 800px; margin: 0 auto; }
-    .breadcrumb a { color: var(--color-muted); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--color-accent); }
-    .breadcrumb span { margin: 0 6px; }
-
-    /* ── Article base ── */
-    .article-section { padding: var(--section-padding); }
-    .article-section--white { background: var(--color-bg); }
-    .article-section--grey  { background: var(--color-bg-light); }
-    .article-section--dark  { background: var(--color-primary); color: #fff; }
-    .article-inner { max-width: 960px; margin: 0 auto; }
-
-    .section-label { font-family: var(--font-body); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 16px; }
-    .article-section--dark .section-label { color: #8da9ff; }
-
-    .article-meta { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.15); }
-    .meta-item { display: flex; flex-direction: column; gap: 4px; }
-    .meta-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; }
-    .meta-value { font-size: 0.9rem; }
-
     /* ── Scan grid ── */
     .scan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
     .scan-grid img { width: 100%; height: auto; border: 1px solid var(--color-border); border-radius: 4px; display: block; }
-    .scan-caption { margin-top: 12px; font-size: 0.78rem; color: var(--color-muted); text-align: center; }
     @media (max-width: 600px) { .scan-grid { grid-template-columns: 1fr; } }
 
     /* ── Transcript ── */
-    .pub-date { font-size: 0.78rem; color: var(--color-muted); margin-bottom: 28px; font-style: italic; }
     .transcript-body h3 { font-family: var(--font-heading); font-size: 1.15rem; margin: 32px 0 12px; color: var(--color-primary); }
-    .transcript-body p { margin-bottom: 16px; line-height: 1.8; font-size: 0.97rem; }
     .transcript-body blockquote { border-left: 3px solid var(--color-accent); padding-left: 20px; margin: 24px 0; font-style: italic; color: var(--color-muted); font-size: 0.95rem; }
 
     /* ── Q&A pairs ── */
@@ -68,42 +44,13 @@
     .ij-stage { width: 100%; max-width: 460px; background: #fff; border: 1px solid var(--color-border); border-radius: 6px; padding: 14px 24px; text-align: center; font-size: 0.92rem; font-weight: 600; color: var(--color-primary); }
     .ij-arrow { color: var(--color-accent); font-size: 1.3rem; line-height: 1; padding: 4px 0; }
 
-    /* ── Then & Now ── */
-    .evolution-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
-    .evo-col { background: #fff; border: 1px solid var(--color-border); border-radius: 8px; padding: 24px; }
-    .evo-col--now { border-top: 3px solid var(--color-accent); }
-    .evo-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 14px; }
-    .evo-col ul { list-style: none; padding: 0; margin: 0; }
-    .evo-col ul li { font-size: 0.88rem; line-height: 1.6; padding: 6px 0; border-bottom: 1px solid var(--color-border); color: #333; }
-    .evo-col ul li:last-child { border-bottom: none; }
-    @media (max-width: 600px) { .evolution-grid { grid-template-columns: 1fr; } }
-
-    /* ── Takeaways ── */
-    .takeaway-list { list-style: none; padding: 0; margin: 24px 0 0; }
-    .takeaway-list li { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--color-border); font-size: 0.95rem; line-height: 1.6; }
-    .takeaway-list li:last-child { border-bottom: none; }
-    .takeaway-list li::before { content: "→"; color: var(--color-accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-
-    /* ── Checklist ── */
-    .checklist { list-style: none; padding: 0; margin: 24px 0 0; }
-    .checklist li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--color-border); font-size: 0.93rem; line-height: 1.65; }
-    .checklist li:last-child { border-bottom: none; }
-    .checklist li::before { content: "✓"; color: var(--color-accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-
-    /* ── Pullquote ── */
-    .pullquote { font-family: var(--font-heading); font-size: 1.55rem; line-height: 1.5; color: #fff; border-left: 4px solid var(--color-accent); padding-left: 28px; margin: 0; }
-
     /* ── Article nav ── */
-    .article-nav { display: flex; justify-content: center; gap: 48px; align-items: flex-start; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--color-border); flex-wrap: wrap; }
-    .article-nav a { font-size: 0.88rem; color: var(--color-accent); text-decoration: none; font-weight: 600; max-width: 240px; }
-    .article-nav a:hover { text-decoration: underline; }
-    .nav-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted); margin-bottom: 4px; font-weight: 600; text-align: center; }
     .archive-return { text-align: center; margin-top: 28px; }
     .archive-return a { font-size: 0.85rem; color: var(--color-muted); text-decoration: none; }
     .archive-return a:hover { color: var(--color-accent); }
-</style>
+  </style>
 </head>
-<body>
+<body class="tpl-jobnet-alt">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Nav -->
